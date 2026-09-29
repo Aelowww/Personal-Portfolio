@@ -20,7 +20,7 @@ This project is my personal developer portfolio. It highlights the work I have b
 
 - Responsive landing page with project highlights
 - Project case studies with desktop/mobile previews and a screenshot viewer
-- Skills section with grouped technologies and proficiency levels
+- Skills section with grouped technologies
 - Certificate pages and resume view
 - Contact links and social profiles
 - Built-in chatbot for quick portfolio questions
