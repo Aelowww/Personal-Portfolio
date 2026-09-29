@@ -19,6 +19,7 @@ This project is my personal developer portfolio. It highlights the work I have b
 ## Features
 
 - Responsive landing page with project highlights
+- Project case studies with desktop/mobile previews and a screenshot viewer
 - Skills section with grouped technologies and proficiency levels
 - Certificate pages and resume view
 - Contact links and social profiles
@@ -37,7 +38,10 @@ Open `http://localhost:3000`.
 ## Project Structure
 
 - `app/page.jsx` contains the main landing page content
+- `app/data/projects.js` holds every project and its case study (add a project here and its card and `/projects/<slug>` page are generated)
+- `app/projects/[slug]/` renders the case study pages
 - `app/components/` contains reusable UI sections
+- `public/projects/<slug>/` stores project screenshots (desktop 1440x900, mobile 390x844 at 2x)
 - `app/api/chat/route.js` powers the portfolio chatbot
 - `public/` stores portfolio images, gallery photos, and assets
 

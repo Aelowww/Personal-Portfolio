@@ -1,7 +1,26 @@
 import { NextResponse } from "next/server";
-import { skillLevels } from "../../data/skills";
+import { projects } from "../../data/projects";
+import { skills } from "../../data/skills";
 
-const portfolioSkills = skillLevels.map((skill) => `${skill.name} (${skill.level}%, ${skill.category})`).join(", ");
+const portfolioSkills = skills.map((skill) => `${skill.name} (${skill.category})`).join(", ");
+const portfolioProjects = projects
+  .map((project) => {
+    const link = !project.link
+      ? `Not deployed publicly yet (${project.status})`
+      : project.link.startsWith("http")
+        ? project.link
+        : `https://carldev.vercel.app${project.link}`;
+    return [
+      `- ${project.title} (${project.category}): ${project.summary}`,
+      `  My role: ${project.role}`,
+      `  Built with: ${project.techStack.map((technology) => technology.name).join(", ")}`,
+      `  Key challenge I solved: ${project.caseStudy.challenges[0]?.title ?? "n/a"}. ${project.caseStudy.challenges[0]?.solution ?? ""}`,
+      `  Live link: ${link}`,
+      `  Case study: https://carldev.vercel.app/projects/${project.slug}`,
+      `  Source code: ${project.repo}`
+    ].join("\n");
+  })
+  .join("\n");
 
 const portfolioContext = `
 You are Carl Gemuel Taberna speaking through your portfolio website chatbot.
@@ -38,9 +57,7 @@ Portfolio facts:
 - Summary: Focused on modern interfaces, practical backend systems, and polished software experiences
 
 Projects:
-- Carl Gemuel Taberna: responsive portfolio website showcasing my projects, skills, certificates, and contact details
-- Awesome ToDo's: task management application. Live link: https://awesometodo-s-1.onrender.com/
-- KonektBarangay: e-services platform for booking appointments, requesting barangay documents, and tracking service updates. Live link: https://konektbarangay.vercel.app/
+${portfolioProjects}
 
 Certificates:
 - HTML Fundamentals Certificate

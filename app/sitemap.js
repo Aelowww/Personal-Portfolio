@@ -1,6 +1,15 @@
+import { projects } from "./data/projects";
+
 const baseUrl = "https://carldev.vercel.app";
 
 export default function sitemap() {
+  const caseStudies = projects.map((project) => ({
+    url: `${baseUrl}/projects/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8
+  }));
+
   return [
     {
       url: baseUrl,
@@ -8,6 +17,7 @@ export default function sitemap() {
       changeFrequency: "weekly",
       priority: 1
     },
+    ...caseStudies,
     {
       url: `${baseUrl}/skills`,
       lastModified: new Date(),

@@ -3,7 +3,7 @@ import Link from "next/link";
 const certificates = [
   {
     title: "Responsive Web Design Certificate",
-    issuer: "FreeCodeCamp",
+    issuer: "freeCodeCamp",
     year: "2026",
     link: "/certificates/responsive-web-design/view",
     previewImage: "/Certificates/RESPONSIVE%20WEB%20DESIGN%20CERTIFICATE.png",
@@ -21,18 +21,12 @@ const certificates = [
   },
   {
     title: "JavaScript Certificate",
-    issuer: "FreeCodeCamp",
+    issuer: "freeCodeCamp",
     year: "2026",
     link: "/certificates/javascript/view",
     previewImage: "/Certificates/JAVASCRIPT%20CERTIFICATE.png",
     previewScale: 1.2,
     previewShiftY: "-2px"
-  },
-  {
-    title: "API and Backend Development Certificate",
-    issuer: "To be added",
-    year: "Upcoming",
-    link: "#"
   }
 ];
 

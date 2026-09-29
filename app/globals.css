@@ -343,150 +343,10 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
 .skill-card:nth-child(8) .skill-title svg { animation-delay: 1.4s; }
 
 .skill-card:hover .skill-title svg { transform: translateY(-1px) scale(1.08); }
-.skill-track { width: min(92%, 220px); height: 13px; margin: 0 auto; border-radius: 999px; background: color-mix(in srgb, var(--line) 72%, #3a475e 28%); overflow: hidden; }
-.skill-fill {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  box-shadow: inset 0 0 12px color-mix(in srgb, #fff 22%, transparent);
-  animation: skillFillIn 900ms ease both;
-}
-.skill-card p { margin: 0; text-align: center; color: color-mix(in srgb, var(--text) 82%, var(--muted)); font-weight: 600; font-size: 0.96rem; }
+.skill-card { border-top: 3px solid var(--skill-tone, var(--accent)); }
+.skill-card .skill-title svg { color: var(--skill-tone, var(--accent)); }
+.skill-card:hover { border-color: color-mix(in srgb, var(--skill-tone, var(--accent)) 45%, var(--line)); border-top-color: var(--skill-tone, var(--accent)); }
 
-.projects .eyebrow { margin-bottom: 14px; }
-.projects h2 { max-width: none; line-height: 1.12; }
-.cards { margin-top: 26px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.card {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface-strong);
-  padding: 22px 20px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
-}
-.card:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--accent) 36%, var(--line));
-}
-.project-preview {
-  aspect-ratio: 4 / 3;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
-  background:
-    radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--accent-soft) 34%, transparent), transparent 58%),
-    linear-gradient(165deg, color-mix(in srgb, var(--surface-strong) 92%, transparent), color-mix(in srgb, var(--surface) 74%, transparent));
-  padding: 8px;
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, #fff 4%, transparent),
-    0 12px 24px color-mix(in srgb, #020617 18%, transparent);
-}
-.project-preview-surface {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--accent) 14%, var(--line));
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface) 82%, #0b1322 18%), color-mix(in srgb, var(--surface-strong) 84%, #07101d 16%));
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, #fff 3%, transparent),
-    0 10px 22px color-mix(in srgb, #020617 20%, transparent);
-  padding: 10px;
-}
-.project-preview-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  display: block;
-  border-radius: 6px;
-  transform: scale(var(--project-preview-scale, 1));
-  transform-origin: center center;
-}
-.project-preview-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 2px;
-}
-.project-preview-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 6px;
-  border: none;
-  background: transparent;
-  color: color-mix(in srgb, var(--accent) 82%, var(--text) 18%);
-  cursor: pointer;
-  transition: transform 180ms ease, color 180ms ease, opacity 180ms ease;
-}
-.project-preview-arrow:hover {
-  transform: translateY(-1px);
-  color: color-mix(in srgb, #fff 88%, var(--accent) 12%);
-  opacity: 1;
-}
-.project-preview-arrow:active {
-  transform: translateY(0);
-}
-.project-preview-arrow:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--accent) 72%, #fff 28%);
-  outline-offset: 2px;
-  border-radius: 10px;
-}
-.project-preview-arrow-icon {
-  width: 20px;
-  height: 20px;
-}
-.project-preview-counter {
-  min-width: 56px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 82%, #091122 18%), color-mix(in srgb, var(--surface) 70%, var(--accent-soft) 30%));
-  color: color-mix(in srgb, var(--text) 90%, #fff 10%);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-align: center;
-  box-shadow: 0 10px 20px color-mix(in srgb, #020617 18%, transparent);
-}
-.tag { margin: 0; text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.45; font-size: 0.76rem; font-weight: 700; color: var(--accent); }
-.card h3 { margin: 0; font-size: clamp(1.42rem, 1.8vw, 1.62rem); line-height: 1.14; }
-.card p { color: var(--muted); margin: 0; line-height: 1.62; font-size: 1rem; }
-.project-description { white-space: pre-line; }
-.project-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 2px;
-}
-.project-stack-chip {
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-  padding: 0 12px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line));
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 86%, #0a1220 14%), color-mix(in srgb, var(--surface) 72%, var(--accent-soft) 28%));
-  color: color-mix(in srgb, var(--text) 90%, #fff 10%);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, #fff 3%, transparent),
-    0 10px 18px color-mix(in srgb, #020617 14%, transparent);
-}
-.card a { display: inline-block; margin-top: auto; padding-top: 4px; color: var(--accent); text-underline-offset: 0.18em; }
 
 .gallery-section h2 { max-width: none; }
 .gallery-slider {
@@ -857,17 +717,12 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   border-color: rgba(10, 102, 112, 0.5);
   box-shadow: 0 10px 18px rgba(10, 102, 112, 0.24);
 }
-:root[data-theme="light"] .card { background: rgba(255, 255, 255, 0.9); }
 
 @keyframes skillCardIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes skillFillIn {
-  from { width: 0; opacity: 0.35; }
-  to { opacity: 1; }
-}
 
 @keyframes skillIconFloat {
   0%, 100% { transform: translateY(0); }
@@ -1137,7 +992,7 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
 }
 
 @media (max-width: 980px) {
-  .hero, .cards, .certificate-cards { grid-template-columns: 1fr; }
+  .hero, .certificate-cards { grid-template-columns: 1fr; }
   .hero-copy { order: 1; }
   .hero-photo-wrap { max-width: 460px; order: 2; }
   .hero-photo { height: min(72vh, 680px); }
@@ -1234,7 +1089,6 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   .about-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
   .profile-button { font-size: 0.72rem; padding: 8px 6px; gap: 4px; }
   .button-icon { width: 12px; height: 12px; }
-  .cards { margin-top: 18px; gap: 12px; }
   .certificate-cards { gap: 10px; }
   .contact-grid { grid-template-columns: 1fr; gap: 18px; }
   .gallery-slider {
@@ -1299,24 +1153,7 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   .skills-group { padding: 10px; }
   .skill-card { padding: 14px 12px; }
   .skill-card { gap: 8px; }
-  .skill-track { height: 10px; }
 
-  .projects h2 { max-width: none; line-height: 1.12; }
-  .card { padding: 14px; gap: 10px; }
-  .card h3 { font-size: 1.15rem; }
-  .card p { font-size: 0.9rem; line-height: 1.55; }
-  .project-preview {
-    aspect-ratio: 11 / 10;
-  }
-  .project-preview-arrow-icon {
-    width: 16px;
-    height: 16px;
-  }
-  .project-preview-counter {
-    min-width: 52px;
-    padding: 4px 9px;
-    font-size: 0.7rem;
-  }
 
   .certificate-cards { margin-top: 10px; }
   .certificate-frame { min-height: 150px; }
@@ -1375,7 +1212,6 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   .about-block-title svg,
   .about-timeline li::before,
   .skill-card,
-  .skill-fill,
   .skill-title svg {
     animation: none;
   }

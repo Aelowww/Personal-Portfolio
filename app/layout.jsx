@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import CarlChatbot from "./components/gemini-chatbot";
 import "./globals.css";
+import "./projects.css";
 
 const themeInitScript = `
   (function () {

@@ -1,92 +1,99 @@
-"use client";
+import Link from "next/link";
+import DevicePreview from "./device-preview";
+import { isExternalLink } from "../data/projects";
 
-import { useState } from "react";
+export function ExternalIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
-export default function ProjectCard({ project }) {
-  const previewImages = project.previewImages ?? [];
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const hasMultipleImages = previewImages.length > 1;
-  const activeImage = previewImages[activeImageIndex];
+export function GitHubIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M9 18c-4 1.2-4-2-6-2m12 4v-3a2.7 2.7 0 0 0-.8-2.1c2.7-.3 5.6-1.3 5.6-5.9A4.6 4.6 0 0 0 18.5 6a4.3 4.3 0 0 0-.1-3.1s-1-.3-3.4 1.2a11.7 11.7 0 0 0-6 0C6.6 2.6 5.6 3 5.6 3A4.3 4.3 0 0 0 5.5 6a4.6 4.6 0 0 0-1.3 3.2c0 4.5 2.9 5.5 5.6 5.9A2.7 2.7 0 0 0 9 17v3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-  const showPreviousImage = () => {
-    setActiveImageIndex((currentIndex) => {
-      if (!previewImages.length) return currentIndex;
-      return currentIndex === 0 ? previewImages.length - 1 : currentIndex - 1;
-    });
-  };
+export function ArrowRightIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
-  const showNextImage = () => {
-    setActiveImageIndex((currentIndex) => {
-      if (!previewImages.length) return currentIndex;
-      return currentIndex === previewImages.length - 1 ? 0 : currentIndex + 1;
-    });
-  };
+export function ProjectLinks({ project, showCaseStudy = true }) {
+  const external = isExternalLink(project.link);
 
   return (
-    <article className="card">
-      <p className="tag">{project.category}</p>
-      {activeImage ? (
-        <>
-          <div className="project-preview">
-            <div className="project-preview-surface">
-              <img
-                className="project-preview-image"
-                src={activeImage.src}
-                alt={activeImage.alt}
-                loading="lazy"
-                style={{
-                  "--project-preview-scale": activeImage.previewScale ?? 1
-                }}
-              />
-            </div>
-          </div>
-          {hasMultipleImages ? (
-            <div className="project-preview-controls">
-              <button
-                type="button"
-                className="project-preview-arrow project-preview-arrow-left"
-                aria-label={`Show previous ${project.title} screenshot`}
-                onClick={showPreviousImage}
-              >
-                <svg className="project-preview-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="m14.5 5-7 7 7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <span className="project-preview-counter" aria-live="polite">
-                {activeImageIndex + 1} / {previewImages.length}
-              </span>
-              <button
-                type="button"
-                className="project-preview-arrow project-preview-arrow-right"
-                aria-label={`Show next ${project.title} screenshot`}
-                onClick={showNextImage}
-              >
-                <svg className="project-preview-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="m9.5 5 7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </div>
-          ) : null}
-        </>
+    <div className="project-actions">
+      {showCaseStudy ? (
+        <Link className="project-button project-button-primary" href={`/projects/${project.slug}`}>
+          Read case study
+          <ArrowRightIcon />
+        </Link>
       ) : null}
-      <h3>{project.title}</h3>
-      <p className="project-description">{project.description}</p>
-      {project.techStack?.length ? (
-        <div className="project-stack" aria-label={`${project.title} tech stack`}>
+      {external ? (
+        <a className="project-button" href={project.link} target="_blank" rel="noreferrer">
+          Live site
+          <ExternalIcon />
+        </a>
+      ) : null}
+      {project.repo ? (
+        <a className="project-button" href={project.repo} target="_blank" rel="noreferrer">
+          <GitHubIcon />
+          Source code
+        </a>
+      ) : null}
+    </div>
+  );
+}
+
+export default function ProjectCard({ project, index }) {
+  return (
+    <article className="project-row">
+      <DevicePreview project={project} />
+
+      <div className="project-info">
+        <p className="project-meta">
+          <span className="project-index">{String(index + 1).padStart(2, "0")}</span>
+          <span>{project.category}</span>
+          <span aria-hidden="true">·</span>
+          <span>{project.year}</span>
+        </p>
+        <h3>
+          <Link href={`/projects/${project.slug}`}>{project.title}</Link>
+        </h3>
+        <p className="project-description">{project.summary}</p>
+
+        {project.highlights?.length ? (
+          <ul className="project-highlights">
+            {project.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        ) : null}
+
+        <ul className="project-stack" aria-label={`${project.title} tech stack`}>
           {project.techStack.map((technology) => (
-            <span key={technology} className="project-stack-chip">
-              {technology}
-            </span>
+            <li key={technology.name} className="project-stack-chip">
+              {technology.name}
+            </li>
           ))}
-        </div>
-      ) : null}
-      <a
-        href={project.link}
-        target={project.link.startsWith("http") ? "_blank" : undefined}
-        rel={project.link.startsWith("http") ? "noreferrer" : undefined}
-      >
-        View Website
-      </a>
+        </ul>
+
+        <ProjectLinks project={project} />
+      </div>
     </article>
   );
 }

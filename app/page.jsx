@@ -5,105 +5,13 @@ import ProfilePhoto from "./components/profile-photo";
 import ProjectCard from "./components/project-card";
 import ThemeToggle from "./components/theme-toggle";
 import ContactForm from "./components/contact-form";
-import { skillGroups, skillLevels } from "./data/skills";
-
-const projects = [
-  {
-    title: "Carl Gemuel Taberna",
-    category: "Portfolio Website",
-    description:
-      "A responsive portfolio website built to present my projects, skills, certificates, and contact details in a polished, recruiter-friendly experience.",
-    link: "/",
-    techStack: ["Next.js", "React", "JavaScript", "CSS", "API Integration"],
-    previewImages: [
-      {
-        src: "/Projects2/Screenshot%202026-03-22%20162040.png",
-        alt: "Carl Gemuel Taberna project screenshot 1",
-        previewScale: 1.12
-      },
-      {
-        src: "/Projects2/Screenshot%202026-03-22%20162315.png",
-        alt: "Carl Gemuel Taberna project screenshot 2",
-        previewScale: 1.12
-      },
-      {
-        src: "/Projects2/Screenshot%202026-03-22%20162418.png",
-        alt: "Carl Gemuel Taberna project screenshot 3",
-        previewScale: 1.12
-      },
-      {
-        src: "/Projects2/Screenshot%202026-03-22%20162622.png",
-        alt: "Carl Gemuel Taberna project screenshot 4",
-        previewScale: 1.12
-      }
-    ]
-  },
-  {
-    title: "Awesome ToDo's",
-    category: "Task Management App",
-    description:
-      "A task management application designed to simplify daily planning through quick task entry, progress tracking, and a clean, distraction-free interface.",
-    link: "https://awesometodo-s-1.onrender.com/",
-    techStack: ["React", "Vite", "Express", "MongoDB", "Node.js"],
-    previewImages: [
-      {
-        src: "/Projects/Screenshot%202026-03-22%20154433.png",
-        alt: "Awesome ToDo's project screenshot 1",
-        previewScale: 1.1
-      },
-      {
-        src: "/Projects/Screenshot%202026-03-22%20154611.png",
-        alt: "Awesome ToDo's project screenshot 2",
-        previewScale: 1.1
-      },
-      {
-        src: "/Projects/Screenshot%202026-03-22%20154743.png",
-        alt: "Awesome ToDo's project screenshot 3",
-        previewScale: 1.06
-      },
-      {
-        src: "/Projects/Screenshot%202026-03-22%20154917.png",
-        alt: "Awesome ToDo's project screenshot 4",
-        previewScale: 1.06
-      }
-    ]
-  },
-  {
-    title: "KonektBarangay",
-    category: "E-Services Platform",
-    description:
-      "A modern e-services platform that helps residents book appointments, request barangay documents, and monitor service updates through a transparent online workflow.",
-    link: "https://konektbarangay.vercel.app/",
-    techStack: ["Next.js", "React", "JavaScript", "Supabase", "PostgreSQL"],
-    previewImages: [
-      {
-        src: "/Projects3/Screenshot%202026-03-22%20165722.png",
-        alt: "KonektBarangay project screenshot 1",
-        previewScale: 1.12
-      },
-      {
-        src: "/Projects3/Screenshot%202026-03-22%20170033.png",
-        alt: "KonektBarangay project screenshot 2",
-        previewScale: 1.12
-      },
-      {
-        src: "/Projects3/Screenshot%202026-03-22%20170141.png",
-        alt: "KonektBarangay project screenshot 3",
-        previewScale: 1.12
-      },
-      {
-        src: "/Projects3/Screenshot%202026-03-22%20170311.png",
-        alt: "KonektBarangay project screenshot 4",
-        previewScale: 1.12
-      }
-    ]
-  }
-];
+import { projects } from "./data/projects";
+import { skillGroups, skills } from "./data/skills";
 
 const certificates = [
   {
     title: "Responsive Web Design Certificate",
-    issuer: "FreeCodeCamp",
+    issuer: "freeCodeCamp",
     year: "2026",
     link: "/certificates/responsive-web-design/view",
     previewImage: "/Certificates/RESPONSIVE%20WEB%20DESIGN%20CERTIFICATE.png",
@@ -121,18 +29,12 @@ const certificates = [
   },
   {
     title: "JavaScript Certificate",
-    issuer: "FreeCodeCamp",
+    issuer: "freeCodeCamp",
     year: "2026",
     link: "/certificates/javascript/view",
     previewImage: "/Certificates/JAVASCRIPT%20CERTIFICATE.png",
     previewScale: 1.2,
     previewShiftY: "-2px"
-  },
-  {
-    title: "API and Backend Development Certificate",
-    issuer: "To be added",
-    year: "Upcoming",
-    link: "#"
   }
 ];
 
@@ -221,32 +123,41 @@ const educationTimeline = [
 
 const experienceTimeline = [
   {
-    title: "Project Manager - School Web Application Project",
-    detail: "Led planning and execution for a school web application project.",
-    year: "2026"
+    title: "Head Full-Stack Developer - Teech (School Project)",
+    detail: "Leading full-stack development of a student–faculty consultation booking system built with Next.js, TypeScript and Supabase.",
+    year: "Sep 2026"
   },
   {
-    title: "Tech Stack & Programming Experience",
-    detail:
-      "Built projects with JavaScript, Next.js, React, Node.js, PostgreSQL, Git, and API integrations across academic and personal work.",
-    year: "2025"
+    title: "Technical Support - iQor",
+    detail: "Troubleshot router and satellite TV issues for customers.",
+    year: "Jul 2026"
+  },
+  {
+    title: "Technical Support - Transcom",
+    detail: "Troubleshot telecommunication systems for customers.",
+    year: "Apr 2026"
+  },
+  {
+    title: "Project Manager - School Web Application Project",
+    detail: "Led planning and execution for a school web application project.",
+    year: "Mar 2026"
   },
   {
     title: "Operations Associate - Sagility, Iloilo City",
     detail:
       "Delivered technology-enabled healthcare support by managing appointment systems, updating patient scheduling records, and coordinating accurate service workflows.",
-    year: "2025"
+    year: "Jun 2025"
   },
   {
     title: "Started Programming Journey",
     detail: "Began learning programming fundamentals and building early practice projects.",
-    year: "2024"
+    year: "Jan 2024"
   },
   {
     title: "Operations Associate - WNS, Iloilo City",
     detail:
       "Provided technology-focused travel support by handling reservation systems, itinerary updates, refund processing, and real-time booking issue resolution.",
-    year: "2023"
+    year: "Mar 2023"
   }
 ];
 
@@ -309,7 +220,7 @@ export default function Home() {
                   <span>Years Learning</span>
                 </article>
                 <article tabIndex={0}>
-                  <strong>3+</strong>
+                  <strong>4+</strong>
                   <span>Projects Built</span>
                 </article>
                 <article tabIndex={0}>
@@ -394,25 +305,21 @@ export default function Home() {
 
         <section id="skills" className="panel tech skills-section">
           <p className="eyebrow section-chip">SKILLS</p>
-          <h2>My tech stack and current proficiency levels.</h2>
+          <h2>The tools and technologies I build with.</h2>
           <div className="skills-groups">
             {skillGroups.map((group) => (
               <section key={group.key} className="skills-group">
                 <p className="skills-group-title">{group.label}</p>
                 <div className="skills-grid">
-                  {skillLevels
+                  {skills
                     .filter((item) => item.category === group.key)
                     .slice(0, 5)
                     .map((item) => (
-                      <article key={item.name} className="skill-card">
+                      <article key={item.name} className="skill-card" style={{ "--skill-tone": item.tone }}>
                         <h3 className="skill-title">
                           <StackIcon name={item.icon} />
                           {item.name}
                         </h3>
-                        <div className="skill-track" aria-hidden="true">
-                          <span className="skill-fill" style={{ width: `${item.level}%`, background: item.tone }} />
-                        </div>
-                        <p>{item.level}%</p>
                       </article>
                     ))}
                 </div>
@@ -427,11 +334,15 @@ export default function Home() {
         </section>
 
         <section id="projects" className="panel projects">
-          <p className="eyebrow">PROJECTS</p>
-          <h2>Projects that represent my development skills.</h2>
-          <div className="cards">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+          <p className="eyebrow section-chip">PROJECTS</p>
+          <h2>Selected work, with the thinking behind it.</h2>
+          <p className="projects-intro">
+            Switch between desktop and mobile previews, open the screenshots, or read the case study to see the
+            problem, my approach, and what I learned.
+          </p>
+          <div className="project-list">
+            {projects.map((project, index) => (
+              <ProjectCard key={project.slug} project={project} index={index} />
             ))}
           </div>
         </section>
@@ -480,14 +391,14 @@ export default function Home() {
         <section id="contact" className="panel contact contact-section">
           <div className="contact-header">
             <p className="eyebrow section-chip">CONTACT</p>
-            <h2>Professional contact channels and social links.</h2>
+            <h2>Get in touch for internships and collaborations.</h2>
           </div>
 
           <div className="contact-grid">
             <ContactForm />
 
             <aside className="contact-connect-card" aria-label="Connect with Carl">
-              <h3>Here&apos;s my social links</h3>
+              <h3>Connect with me</h3>
 
               <div className="contact-social-list" aria-label="Social links">
                 <a className="contact-social contact-social-wide" href="https://www.facebook.com/cgtaberna.10" target="_blank" rel="noreferrer">
