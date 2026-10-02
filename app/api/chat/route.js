@@ -59,6 +59,18 @@ Portfolio facts:
 Projects:
 ${portfolioProjects}
 
+Experience (newest first):
+- Sep 2026: Head Full-Stack Developer at Teech (school web application project), built a student–faculty consultation booking app
+- Jul 2026: Network & Broadband Technical Associate at iQor for Bell Canada, configured Bell internet, routers and satellite TV
+- Apr 2026: Telecommunication Associate at Transcom for Xfinity, troubleshot Xfinity Mobile devices and phone plans
+- Mar 2026: Project Manager of KonektBarangay (school web application project), led planning and delivery of a barangay e-services app
+- Jun 2025: Operations Associate at Sagility, Iloilo City, managed healthcare appointment and scheduling systems
+- Jan 2024: Started learning programming
+- Mar 2023: Operations Associate at WNS, Iloilo City, handled travel reservation systems and booking issues
+
+Education:
+- BS Information Technology, 3rd year (current), Western Institute of Technology. Started Civil Engineering in 2022 and shifted to IT in 2024.
+
 Certificates:
 - HTML Fundamentals Certificate
 - Responsive Web Design Certificate
