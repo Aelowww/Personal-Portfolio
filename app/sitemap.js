@@ -77,6 +77,24 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.6
+    },
+    {
+      url: `${baseUrl}/certificates/front-end-development-libraries-v8/view`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6
+    },
+    {
+      url: `${baseUrl}/certificates/legacy-javascript-algorithms-v7/view`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6
+    },
+    {
+      url: `${baseUrl}/certificates/legacy-responsive-web-design-v8/view`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6
     }
   ];
 }
