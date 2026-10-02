@@ -2,7 +2,7 @@ export const metadata = {
   title: "CarlTaberna Resume"
 };
 
-const PDF_SRC = "/Resume/Taberna_Resume.pdf";
+const PDF_SRC = "/Resume/Carl%20Gemuel%20Taberna%20Resume.pdf";
 
 export default function ResumeViewPage() {
   return (

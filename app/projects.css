@@ -397,9 +397,11 @@ html.lightbox-open { overflow: hidden; }
 .case-facts {
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
 }
+/* Role is the longest value, so it gets its own full-width row */
+.case-facts div:first-child { grid-column: 1 / -1; }
 .case-facts div {
   padding: 10px 12px;
   border: 1px solid var(--line);
@@ -589,7 +591,6 @@ html.lightbox-open { overflow: hidden; }
   .case-layout { grid-template-columns: 1fr; }
   .case-aside { position: static; }
   .case-toc { display: none; }
-  .case-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {

@@ -17,6 +17,12 @@ export default function sitemap() {
       changeFrequency: "weekly",
       priority: 1
     },
+    {
+      url: `${baseUrl}/projects`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8
+    },
     ...caseStudies,
     {
       url: `${baseUrl}/skills`,
@@ -50,6 +56,24 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/certificates/responsive-web-design/view`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6
+    },
+    {
+      url: `${baseUrl}/certificates/front-end-development-libraries/view`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6
+    },
+    {
+      url: `${baseUrl}/certificates/relational-database/view`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6
+    },
+    {
+      url: `${baseUrl}/certificates/relational-database-v8/view`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.6

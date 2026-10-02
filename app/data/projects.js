@@ -37,15 +37,15 @@ export const projects = [
     },
     gallery: [
       { src: "/projects/konektbarangay/desktop-home.webp", alt: "KonektBarangay landing page", caption: "Landing page with the two main actions", viewport: "desktop", ...desktop },
+      { src: "/projects/konektbarangay/desktop-request-document.webp", alt: "Document types residents can request", caption: "Choose from nine barangay documents", viewport: "desktop", ...desktop },
+      { src: "/projects/konektbarangay/desktop-set-appointment.webp", alt: "Appointment calendar with a date and time selected", caption: "Pick a date and an hourly slot within office hours", viewport: "desktop", ...desktop },
+      { src: "/projects/konektbarangay/desktop-request-summary.webp", alt: "Request summary before submission", caption: "Review the request before submitting", viewport: "desktop", ...desktop },
+      { src: "/projects/konektbarangay/desktop-manage-requests.webp", alt: "Admin request queue with status filter and search", caption: "Admin queue: view, approve, reject or mark completed", viewport: "desktop", ...desktop },
       { src: "/projects/konektbarangay/mobile-home.webp", alt: "KonektBarangay landing page on mobile", caption: "Landing page on a phone", viewport: "mobile", ...mobile },
-      { src: "/projects/konektbarangay/desktop-login.webp", alt: "KonektBarangay login page", caption: "Login with password reset", viewport: "desktop", ...desktop },
-      { src: "/projects/konektbarangay/mobile-register.webp", alt: "KonektBarangay registration form on mobile", caption: "Registration with live password rules", viewport: "mobile", ...mobile },
-      { src: "/projects/konektbarangay/desktop-register.webp", alt: "KonektBarangay registration page", caption: "Registration page", viewport: "desktop", ...desktop },
-      { src: "/projects/konektbarangay/mobile-login.webp", alt: "KonektBarangay login page on mobile", caption: "Login on a phone", viewport: "mobile", ...mobile },
-      { src: "/projects/konektbarangay/app-resident-home.webp", alt: "Signed-in resident home with notification badge", caption: "Signed-in view with the notification badge", viewport: "app", width: 811, height: 865 },
-      { src: "/projects/konektbarangay/app-request-summary.webp", alt: "Request summary before submission", caption: "Request summary: review before submitting", viewport: "app", width: 804, height: 854 },
-      { src: "/projects/konektbarangay/app-manage-requests.webp", alt: "Admin manage requests screen with approve and reject actions", caption: "Admin queue with status filter, search, approve and reject", viewport: "app", width: 799, height: 858 },
-      { src: "/projects/konektbarangay/app-notifications.webp", alt: "Notifications list showing request status updates", caption: "Notifications for each status change", viewport: "app", width: 819, height: 867 }
+      { src: "/projects/konektbarangay/mobile-request-document.webp", alt: "Document selection on mobile", caption: "Requesting a document on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/konektbarangay/mobile-set-appointment.webp", alt: "Appointment calendar on mobile", caption: "Booking a claim schedule on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/konektbarangay/mobile-request-summary.webp", alt: "Request summary on mobile", caption: "Request summary on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/konektbarangay/mobile-manage-requests.webp", alt: "Admin request queue on mobile", caption: "Admin queue on a phone", viewport: "mobile", ...mobile }
     ],
     caseStudy: {
       overview:
@@ -61,10 +61,10 @@ export const projects = [
       approach:
         "I built it on Next.js with TypeScript and used Supabase for authentication, the Postgres database, and realtime updates. The request is split into three short steps (choose a document, pick an appointment, review the summary) so each screen stays simple on a phone. The draft is kept in the browser between steps, and a request is only written to the database once the resident confirms the summary.",
       features: [
-        { title: "Guided document requests", detail: "A three-step flow from choosing a document to a final summary the resident reviews before submitting." },
-        { title: "Appointment calendar", detail: "A month calendar with time slots so residents pick when to claim their document." },
+        { title: "Guided document requests", detail: "Nine document types, from Barangay Clearance to First-Time Job Seeker, plus an \"Other\" option, in a three-step flow that ends with a summary the resident reviews before submitting." },
+        { title: "Appointment calendar", detail: "A month calendar with hourly slots inside office hours (Monday to Friday, 8 AM to 5 PM). Fully booked and unavailable days are marked." },
         { title: "Resident dashboard", detail: "Residents see every request they have made and its current status." },
-        { title: "Admin request queue", detail: "Staff filter by status, search by name, document type or request ID, and approve or reject in one click." },
+        { title: "Admin request queue", detail: "Staff filter by pending, approved, rejected, cancelled or completed, search by name, document type or request ID, view the full details, and approve, reject or mark a request completed." },
         { title: "Live notifications", detail: "Status changes create notifications, and the header badge updates without a page refresh." },
         { title: "Secure registration", detail: "Password rules are checked as you type: length, upper and lower case, a number, and a special character." }
       ],
@@ -109,50 +109,49 @@ export const projects = [
     title: "Teech",
     category: "Consultation Booking System",
     year: "2026",
-    role: "Head Full-Stack Developer (team project)",
-    type: "Mobile-first web app",
-    status: "In development",
+    role: "Head Full-Stack Developer",
+    type: "Web app",
+    status: "Live",
     summary:
       "A student–faculty consultation booking system. Faculty publish the dates, times and rooms they're free, students request a slot, and faculty confirm or decline, with booking rules enforced by the database itself.",
     highlights: [
       "Double booking blocked at the database level",
-      "Booking rules and status changes enforced by Postgres triggers",
-      "AI help chat that replies in English, Filipino or Taglish"
+      "Separate mobile and desktop layouts on the same URLs",
+      "Streaks, points and collectible badges that reward showing up"
     ],
-    link: null,
+    link: "https://teech-app.vercel.app/",
     repo: "https://github.com/Aelowww/Teech",
     techStack: [
       { name: "Next.js", purpose: "Pages, API routes, and a proxy for sign-in checks and phone vs computer routing" },
       { name: "TypeScript", purpose: "Typed pages, helpers and API routes" },
       { name: "Supabase Auth", purpose: "Student ID sign-in for students, email sign-in for faculty" },
       { name: "PostgreSQL", purpose: "Bookings, availability, notifications, points and badges, with row-level security" },
+      { name: "Supabase Realtime", purpose: "Live notification and request updates" },
       { name: "Supabase Storage", purpose: "Private profile photos" },
       { name: "pg_cron", purpose: "Nightly job that expires unanswered requests" },
-      { name: "Gemini API", purpose: "In-app support assistant" },
-      { name: "CSS Modules", purpose: "Component-scoped mobile styling" }
+      { name: "Gemini API", purpose: "Help chat fallback" },
+      { name: "CSS Modules", purpose: "Component-scoped styling for the mobile and desktop layouts" },
+      { name: "Vercel", purpose: "Hosting" }
     ],
     cover: {
+      desktop: { src: "/projects/teech/desktop-student-home.webp", alt: "Teech student dashboard on desktop", ...desktop },
       mobile: { src: "/projects/teech/student-home.webp", alt: "Teech student dashboard", ...mobile }
     },
     gallery: [
-      { src: "/projects/teech/student-home.webp", alt: "Student dashboard with streak, points and a pending request", caption: "Student dashboard: next consultation, streak and pending requests", viewport: "mobile", group: "student", ...mobile },
-      { src: "/projects/teech/student-faculty.webp", alt: "List of faculty with their next open date", caption: "Pick a faculty member with open dates", viewport: "mobile", group: "student", ...mobile },
-      { src: "/projects/teech/student-notifications.webp", alt: "Student notifications for submitted and confirmed requests", caption: "Notifications for every request update", viewport: "mobile", group: "student", ...mobile },
-      { src: "/projects/teech/student-points.webp", alt: "Points balance, ways to earn and rewards shop", caption: "Points shop: streak freezes and collectible badges", viewport: "mobile", group: "student", ...mobile },
-      { src: "/projects/teech/student-badges.webp", alt: "Grid of badges to unlock", caption: "Badges to unlock and show on your profile", viewport: "mobile", group: "student", ...mobile },
-      { src: "/projects/teech/faculty-home.webp", alt: "Faculty dashboard with open dates and requests needing a response", caption: "Faculty dashboard: open dates and requests to answer", viewport: "mobile", group: "faculty", ...mobile },
-      { src: "/projects/teech/faculty-requests.webp", alt: "Faculty request list with approve and decline buttons", caption: "Approve or decline requests, filtered by status", viewport: "mobile", group: "faculty", ...mobile },
-      { src: "/projects/teech/faculty-calendar.webp", alt: "Faculty calendar showing published dates", caption: "Calendar of published consultation dates", viewport: "mobile", group: "faculty", ...mobile },
-      { src: "/projects/teech/faculty-availability.webp", alt: "Availability form with dates, times and meeting room", caption: "Publish dates, times and a meeting room", viewport: "mobile", group: "faculty", ...mobile },
-      { src: "/projects/teech/mobile-splash.webp", alt: "Teech splash screen with the tagline Teach within your reach", caption: "Splash screen", viewport: "mobile", group: "public", ...mobile },
-      { src: "/projects/teech/mobile-role-select.webp", alt: "Choose between student and faculty", caption: "Separate student and faculty portals", viewport: "mobile", group: "public", ...mobile },
-      { src: "/projects/teech/mobile-student-sign-in.webp", alt: "Student sign-in with Student ID", caption: "Students sign in with their Student ID", viewport: "mobile", group: "public", ...mobile },
-      { src: "/projects/teech/mobile-student-create-account.webp", alt: "Student account creation form", caption: "Student sign-up with password rules and help chat", viewport: "mobile", group: "public", ...mobile },
-      { src: "/projects/teech/mobile-faculty-sign-in.webp", alt: "Faculty sign-in with school email", caption: "Faculty sign in with their school email", viewport: "mobile", group: "public", ...mobile }
+      { src: "/projects/teech/desktop-student-home.webp", alt: "Student dashboard with study tip, streak and requests", caption: "Student dashboard", viewport: "desktop", group: "student", ...desktop },
+      { src: "/projects/teech/desktop-student-faculty.webp", alt: "Faculty cards showing live status and next open date", caption: "Faculty list with live status", viewport: "desktop", group: "student", ...desktop },
+      { src: "/projects/teech/desktop-student-book.webp", alt: "Booking step one: choose one of the teacher's open dates", caption: "Four-step booking: date, time, details, review", viewport: "desktop", group: "student", ...desktop },
+      { src: "/projects/teech/desktop-student-points.webp", alt: "Points balance, rewards shop and history", caption: "Points shop with common, rare and legendary badges", viewport: "desktop", group: "student", ...desktop },
+      { src: "/projects/teech/desktop-faculty-availability.webp", alt: "Faculty availability calendar with times and room", caption: "Faculty publish dates, times and a room", viewport: "desktop", group: "faculty", ...desktop },
+      { src: "/projects/teech/student-home.webp", alt: "Student dashboard on mobile", caption: "Student dashboard on a phone", viewport: "mobile", group: "student", ...mobile },
+      { src: "/projects/teech/student-faculty.webp", alt: "Faculty list on mobile", caption: "Pick a faculty member with open dates", viewport: "mobile", group: "student", ...mobile },
+      { src: "/projects/teech/student-book.webp", alt: "Choosing an open date on mobile", caption: "Choosing a date on a phone", viewport: "mobile", group: "student", ...mobile },
+      { src: "/projects/teech/student-points.webp", alt: "Points shop on mobile", caption: "Points shop: streak freezes and badges", viewport: "mobile", group: "student", ...mobile },
+      { src: "/projects/teech/faculty-availability.webp", alt: "Faculty availability form on mobile", caption: "Publishing availability on a phone", viewport: "mobile", group: "faculty", ...mobile }
     ],
     caseStudy: {
       overview:
-        "Teech (\"Teach within your reach\") puts consultation booking in one place. Faculty publish the dates, time ranges and rooms they're available, students pick a faculty member and a slot and send a request, and the faculty member confirms or declines. Both sides get in-app notifications at every step.",
+        "Teech (\"Teacher within your reach\") puts consultation booking in one place. Faculty publish the dates, time ranges and rooms they're available, students pick a faculty member and a slot and send a request, and the faculty member confirms or declines. Both sides get in-app notifications at every step.",
       problem:
         "Booking a consultation at our school meant messaging a teacher, waiting for a late reply, finding the time no longer works, and starting over. There was no shared view of when a teacher was actually free.",
       goals: [
@@ -162,13 +161,15 @@ export const projects = [
         "Keep both sides updated without extra messaging"
       ],
       approach:
-        "We built the mobile version first, since students mostly use their phones. Instead of trusting the app to follow the booking rules, we put them in the database: Postgres triggers check every new request and every status change, and row-level security controls who can read or edit each record. A proxy serves the mobile or desktop version at the same URLs depending on the device, so the desktop version can be rolled out page by page.",
+        "We built the mobile version first, since students mostly use their phones. Instead of trusting the app to follow the booking rules, we put them in the database: Postgres triggers check every new request and every status change, and row-level security controls who can read or edit each record. A proxy serves the mobile or desktop layout at the same URLs depending on the device, which let us roll out the desktop version page by page until it was complete.",
       features: [
-        { title: "Slot-based booking", detail: "Faculty availability is split into hourly slots. Taken slots and past times today are hidden." },
+        { title: "Slot-based booking", detail: "A four-step flow (date, time, details, review). Faculty availability is split into hourly slots, and taken slots and past times today are hidden." },
+        { title: "Live faculty status", detail: "Faculty set themselves as available, in a class or in a meeting, so students know before they book." },
         { title: "Request tracking", detail: "Students follow each request through pending, confirmed, declined or cancelled, and can cancel if plans change." },
         { title: "Faculty tools", detail: "Faculty publish dates, times and rooms, then confirm, decline or cancel requests." },
         { title: "Notifications", detail: "The database creates a notification for the other person whenever a request is made or changes." },
-        { title: "Streaks, points and badges", detail: "Daily login streaks earn points that can be exchanged for streak freezes and collectible badges to show on your profile." },
+        { title: "Streaks, points and badges", detail: "Daily check-ins earn more points each day of a streak, peaking on day 7. Points buy streak freezes and common, rare and legendary badges, and up to 3 badges can be shown on a profile." },
+        { title: "Study and consultation tips", detail: "Students get a rotating study tip and faculty get consultation tips on their dashboard." },
         { title: "AI help chat", detail: "Answers questions about using Teech in English, Filipino or Taglish, and never asks for passwords or IDs." },
         { title: "Account recovery", detail: "Students reset passwords with security questions, since they sign in with a Student ID. Faculty reset by email." },
         { title: "Account deletion", detail: "Deleting an account cancels upcoming consultations and notifies the other person." }
@@ -200,72 +201,84 @@ export const projects = [
         }
       ],
       outcomes: [
-        "The mobile version works end to end: accounts, booking, requests, notifications, streaks, points and badges.",
+        "Live on Vercel with complete mobile and desktop layouts: accounts, booking, requests, notifications, streaks, points and badges.",
         "Teammates tested it on their own phones through an ngrok tunnel during development.",
-        "26 versioned database migrations document how the schema and its rules evolved."
+        "31 versioned database migrations document how the schema and its rules evolved."
       ],
       learnings: [
         "Rules that protect data belong in the database, not just the UI",
         "Row-level security and security-definer functions in Postgres",
         "Working in a team with versioned migrations and a shared database"
       ],
-      nextSteps: [
-        "Finish the desktop version",
-        "Deploy it publicly so students can use it"
-      ]
+      nextSteps: []
     }
   },
   {
     slug: "awesome-todos",
     title: "Awesome ToDo's",
-    category: "Task Management App",
+    category: "Student Planner",
     year: "2026",
     role: "Full-Stack Developer",
-    type: "Web application",
-    status: "Temporarily offline",
-    linkNote: "The live demo is temporarily offline. The source code and screenshots show the full app.",
+    type: "Web app (PWA)",
+    status: "Live",
     summary:
-      "A full-stack task manager with a React front end, an Express REST API, and MongoDB Atlas. It started as CRUD practice and was later redesigned into a cleaner, more focused interface.",
+      "A full-stack planner for students that keeps tasks, deadlines, class schedules and grades in one place, with a focus timer and Study Buddy, an AI assistant that knows your tasks and classes.",
     highlights: [
-      "REST API with create, read, update and delete",
-      "Front end and API deployed as one service",
-      "Redesigned dark interface"
+      "Tasks, calendar, timetable and grade tracker in one app",
+      "Study Buddy AI chat and \"Break down with AI\" for big tasks",
+      "Separate phone and desktop layouts, installable as an app"
     ],
-    link: null,
+    link: "https://awesometodos-web.onrender.com/",
     repo: "https://github.com/Aelowww/AwesomeToDo-s",
     techStack: [
-      { name: "React", purpose: "Task list, form and state" },
+      { name: "React", purpose: "Pages, components and app state" },
       { name: "Vite", purpose: "Development server and production build" },
-      { name: "Node.js + Express", purpose: "REST API under /api/todos and static hosting of the built app" },
-      { name: "MongoDB Atlas", purpose: "Stores tasks and their completed status" },
-      { name: "Render", purpose: "Hosts the API and front end together" }
+      { name: "Node.js + Express", purpose: "REST API for tasks, accounts, classes and grades, plus static hosting of the built app" },
+      { name: "MongoDB Atlas", purpose: "Stores users, tasks, classes and grades" },
+      { name: "JWT", purpose: "Sign-in sessions stored in cookies" },
+      { name: "Gemini API", purpose: "Study Buddy chat and AI task breakdown" },
+      { name: "Nodemailer", purpose: "Password reset emails" },
+      { name: "Render", purpose: "Hosts the API and front end together, deployed from GitHub" }
     ],
     cover: {
-      desktop: { src: "/projects/awesome-todos/desktop-home.webp", alt: "Awesome ToDo's task list", width: 915, height: 632 }
+      desktop: { src: "/projects/awesome-todos/desktop-home.webp", alt: "Awesome ToDo's dashboard on desktop", ...desktop },
+      mobile: { src: "/projects/awesome-todos/mobile-home.webp", alt: "Awesome ToDo's dashboard on mobile", ...mobile }
     },
     gallery: [
-      { src: "/projects/awesome-todos/desktop-home.webp", alt: "Task list with three tasks", caption: "Task list", viewport: "desktop", width: 915, height: 632 },
-      { src: "/projects/awesome-todos/desktop-typing.webp", alt: "Typing a new task", caption: "Adding a task", viewport: "desktop", width: 920, height: 630 },
-      { src: "/projects/awesome-todos/desktop-added.webp", alt: "New task added to the list", caption: "New task saved to MongoDB", viewport: "desktop", width: 916, height: 726 },
-      { src: "/projects/awesome-todos/desktop-completed.webp", alt: "Completed task shown with a strike-through", caption: "Marking a task as done", viewport: "desktop", width: 919, height: 730 }
+      { src: "/projects/awesome-todos/desktop-home.webp", alt: "Dashboard with progress ring, stat tiles, week strip and today's classes", caption: "Dashboard: today's progress, classes and 7-day activity", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/desktop-tasks.webp", alt: "Task list with filters, search and sorting", caption: "Tasks with All, Today, Next 7 days, Overdue and Done views", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/desktop-classes.webp", alt: "Weekly class timetable with rooms", caption: "Weekly class schedule with rooms", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/desktop-grades.webp", alt: "Grade tracker with target grade per class", caption: "Grade tracker with a target-grade calculator", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/desktop-focus.webp", alt: "Pomodoro focus timer", caption: "Focus timer linked to a task", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/mobile-home.webp", alt: "Dashboard on mobile", caption: "Dashboard on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/awesome-todos/mobile-tasks.webp", alt: "Task list on mobile", caption: "Tasks on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/awesome-todos/mobile-calendar.webp", alt: "Deadline calendar on mobile", caption: "Deadline calendar on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/awesome-todos/mobile-classes.webp", alt: "Class schedule on mobile", caption: "Class schedule on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/awesome-todos/mobile-grades.webp", alt: "Grade tracker on mobile", caption: "Grade tracker on a phone", viewport: "mobile", ...mobile }
     ],
     caseStudy: {
       overview:
-        "Awesome ToDo's is a full-stack task manager. You can add tasks, mark them done, and delete them, and everything is saved to MongoDB Atlas. I built it to learn how a front end, an API and a database fit together in one deployed app.",
+        "Awesome ToDo's started as a simple to-do list and grew into a planner for students. You add tasks with a subject, type, priority, due date and steps, see what's due today and this week, keep your class schedule and grades, and stay focused with a built-in timer. Study Buddy, the AI assistant, can answer questions about your schedule and split a big task into steps.",
       problem:
-        "I wanted a project small enough to finish and polish but still cover the whole stack: a user interface, a REST API, a real database, and deployment.",
+        "Students keep track of assignments, exams and classes across sticky notes, group chats and memory, and things get missed. A plain to-do list doesn't know about your classes or how close your grades are to your goal.",
       goals: [
-        "Build a complete create, read, update and delete flow",
-        "Design a small, predictable REST API",
-        "Ship the front end and API as a single deployment"
+        "Put tasks, deadlines, classes and grades in one place",
+        "Show what matters today at a glance",
+        "Help students start big tasks and stay focused",
+        "Work well on both phones and computers"
       ],
       approach:
-        "The React app talks to four REST routes under /api/todos (GET, POST, PUT, DELETE). In production, Express serves the built React files and falls back to index.html for any non-API route, so one Render service hosts everything and no cross-origin setup is needed.",
+        "The React app talks to an Express REST API split into tasks, accounts, and classes and grades. In production, Express serves the built React files and falls back to index.html for any non-API route, so one Render service hosts everything. Class names double as task subjects, which connects the timetable, tasks and dashboard. Study Buddy gets the student's tasks and classes as context, and the AI code tries a newer Gemini model first and falls back when one is busy.",
       features: [
-        { title: "Quick add", detail: "Type and press Enter. Empty or whitespace-only tasks are ignored." },
-        { title: "Complete and undo", detail: "A checkbox toggles the task, and completed tasks are struck through." },
-        { title: "Delete", detail: "Remove a task with one click." },
-        { title: "Persistent storage", detail: "Tasks are saved in MongoDB Atlas, so they are still there after a reload." }
+        { title: "Detailed tasks", detail: "Each task can have a subject, type (task, assignment, exam, project or reading), priority, due date, steps and notes." },
+        { title: "Smart views", detail: "All, Today, Next 7 days, Overdue and Done, with search, subject and type filters, and sorting." },
+        { title: "Dashboard", detail: "A progress ring, stat tiles, a week strip, today's classes and a 7-day activity chart." },
+        { title: "Calendar", detail: "Every deadline on a month calendar. Tap a day to see or add tasks for it." },
+        { title: "Classes and grades", detail: "A weekly timetable with rooms and a grade tracker that shows what you need to reach a target grade." },
+        { title: "Focus timer", detail: "Pomodoro sessions with one-tap lengths, a custom time and an optional task to work on." },
+        { title: "Study Buddy AI", detail: "A chat that knows your tasks and classes, plus \"Break down with AI\" to split a big task into steps." },
+        { title: "Accounts", detail: "Welcome tour, profile photo, school and year level, email and password changes, and password reset." },
+        { title: "Light and dark mode", detail: "Light, dark or match your device, with separate phone and desktop layouts and PWA install." }
       ],
       challenges: [
         {
@@ -274,30 +287,23 @@ export const projects = [
           solution: "I pointed Node's DNS resolver at public resolvers (8.8.8.8 and 1.1.1.1) before connecting, which made local development reliable."
         },
         {
-          title: "Task text showing extra quotes",
-          problem: "The server stored task text as a JSON string, so some tasks displayed with quotation marks.",
-          solution: "I added a small display helper that safely parses the stored value, so older and newer records both display correctly."
-        },
-        {
-          title: "Rejecting bad updates",
-          problem: "The update route could receive a status that wasn't a boolean.",
-          solution: "The PUT route validates the status and returns 400 Bad Request if it isn't true or false."
+          title: "Keeping the AI assistant available",
+          problem: "A single AI model can be busy or rate-limited, which would leave Study Buddy unusable.",
+          solution: "The server tries a list of Gemini models in order and moves to the next one when Google reports it busy or unavailable. Without an API key, the rest of the app still works and Study Buddy explains that it isn't switched on yet."
         }
       ],
       outcomes: [
-        "A working CRUD app with a clear split between client and server folders.",
+        "Live on Render with automatic deploys from the main branch.",
+        "Grew from a four-route CRUD app into a full planner with accounts, classes, grades and AI features.",
         "One repository and one deployment for both the front end and the API."
       ],
       learnings: [
-        "How REST routes map to user actions",
-        "Managing environment variables and build commands for deployment",
+        "How to grow a small CRUD app into a larger product without rewriting it",
+        "Handling sign-in with JWTs and cookies",
+        "Giving an AI assistant the right context and a fallback plan",
         "Free hosting tiers sleep when idle, which affects first-load time"
       ],
-      nextSteps: [
-        "Edit tasks inline",
-        "Update the list immediately instead of re-fetching after every change",
-        "Show a friendly error when the database is unreachable"
-      ]
+      nextSteps: []
     }
   },
   {
@@ -330,10 +336,14 @@ export const projects = [
     },
     gallery: [
       { src: "/projects/portfolio/desktop-home.webp", alt: "Portfolio hero section", caption: "Hero section", viewport: "desktop", ...desktop },
-      { src: "/projects/portfolio/mobile-home.webp", alt: "Portfolio hero on mobile", caption: "Hero on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/portfolio/desktop-projects.webp", alt: "Projects section with device previews", caption: "Projects with desktop and mobile previews", viewport: "desktop", ...desktop },
+      { src: "/projects/portfolio/desktop-case-study.webp", alt: "Teech case study page", caption: "Case study page", viewport: "desktop", ...desktop },
       { src: "/projects/portfolio/desktop-skills.webp", alt: "Skills page", caption: "Skills grouped by area", viewport: "desktop", ...desktop },
-      { src: "/projects/portfolio/mobile-skills.webp", alt: "Skills page on mobile", caption: "Skills on a phone", viewport: "mobile", ...mobile },
       { src: "/projects/portfolio/desktop-certificates.webp", alt: "Certificates page", caption: "Certificates overview", viewport: "desktop", ...desktop },
+      { src: "/projects/portfolio/mobile-home.webp", alt: "Portfolio hero on mobile", caption: "Hero on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/portfolio/mobile-projects.webp", alt: "Projects section on mobile", caption: "Projects on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/portfolio/mobile-case-study.webp", alt: "Case study page on mobile", caption: "Case study on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/portfolio/mobile-skills.webp", alt: "Skills page on mobile", caption: "Skills on a phone", viewport: "mobile", ...mobile },
       { src: "/projects/portfolio/mobile-certificates.webp", alt: "Certificates page on mobile", caption: "Certificates on a phone", viewport: "mobile", ...mobile }
     ],
     caseStudy: {
@@ -381,6 +391,85 @@ export const projects = [
         "How to write chatbot instructions that keep answers grounded in real facts",
         "Using the Next.js Metadata API for SEO",
         "Designing mobile-first instead of shrinking a desktop layout"
+      ],
+      nextSteps: []
+    }
+  },
+  {
+    slug: "professional-portfolio",
+    title: "Professional Portfolio",
+    category: "Portfolio Website",
+    year: "2026",
+    role: "Designer & Developer",
+    type: "Website",
+    status: "Live",
+    summary:
+      "A second, recruiter-focused version of my portfolio with a minimal monochrome bento layout that shows my projects, experience, tech stack and certificates at a glance.",
+    highlights: [
+      "Minimal bento-card layout built for quick scanning",
+      "Experience timeline and tech stack with official brand logos",
+      "Case study pages with desktop and mobile previews"
+    ],
+    link: "https://carltaberna.vercel.app/",
+    repo: "https://github.com/Aelowww/Professional-Portfolio",
+    techStack: [
+      { name: "Next.js", purpose: "App Router pages, generated case studies and the chatbot API route" },
+      { name: "React", purpose: "Interactive pieces like the chatbot, theme toggle and screenshot viewer" },
+      { name: "CSS", purpose: "Hand-written monochrome styles with light and dark tokens" },
+      { name: "Simple Icons", purpose: "Official brand logos for the tech stack" },
+      { name: "Gemini API", purpose: "Powers the \"Ask Carl anything\" chatbot" },
+      { name: "Vercel", purpose: "Hosting and analytics" }
+    ],
+    cover: {
+      desktop: { src: "/projects/professional-portfolio/desktop-home.webp", alt: "Professional portfolio home page on desktop", ...desktop },
+      mobile: { src: "/projects/professional-portfolio/mobile-home.webp", alt: "Professional portfolio home page on mobile", ...mobile }
+    },
+    gallery: [
+      { src: "/projects/professional-portfolio/desktop-home.webp", alt: "Profile header, quick stats, about and experience cards", caption: "Profile header with quick stats and experience timeline", viewport: "desktop", ...desktop },
+      { src: "/projects/professional-portfolio/desktop-skills.webp", alt: "Tech stack card with brand logos", caption: "Tech stack with official brand logos", viewport: "desktop", ...desktop },
+      { src: "/projects/professional-portfolio/desktop-projects.webp", alt: "Recent projects cards", caption: "Project cards", viewport: "desktop", ...desktop },
+      { src: "/projects/professional-portfolio/desktop-case-study.webp", alt: "Teech case study page with a phone preview", caption: "Case study page with a device preview", viewport: "desktop", ...desktop },
+      { src: "/projects/professional-portfolio/desktop-certificates.webp", alt: "Certificates page", caption: "Certificates overview", viewport: "desktop", ...desktop },
+      { src: "/projects/professional-portfolio/mobile-home.webp", alt: "Profile header on mobile", caption: "Home on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/professional-portfolio/mobile-skills.webp", alt: "Tech stack on mobile", caption: "Tech stack on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/professional-portfolio/mobile-projects.webp", alt: "Project cards on mobile", caption: "Projects on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/professional-portfolio/mobile-case-study.webp", alt: "Case study page on mobile", caption: "Case study on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/professional-portfolio/mobile-certificates.webp", alt: "Certificates page on mobile", caption: "Certificates on a phone", viewport: "mobile", ...mobile }
+    ],
+    caseStudy: {
+      overview:
+        "The professional portfolio is a cleaner companion to this site. A profile header with quick stats and internship status sits above bento cards for About, Experience, Tech Stack, Projects, Certificates and Social Links, and every project has its own case study page.",
+      problem:
+        "Recruiters spend very little time on each portfolio. My main site has a lot of personality, but I also wanted a version that shows the essentials (who I am, what I've built, and my experience) in a few seconds.",
+      goals: [
+        "Show the most important information above the fold",
+        "Keep the design minimal and consistent in light and dark mode",
+        "Reuse the same project and case study content as my main portfolio"
+      ],
+      approach:
+        "I kept the data-driven structure from my main portfolio, so profile details, the experience timeline, skills and projects each live in a data file and the cards and /projects/<slug> pages are generated from them. The visual design switched to a monochrome bento grid with Geist and Geist Mono type.",
+      features: [
+        { title: "Profile header", detail: "Photo, location, role, quick stats and an \"Open to internship\" call to action." },
+        { title: "Bento cards", detail: "About, Experience, Tech Stack, Projects, Certificates and Social Links in one grid." },
+        { title: "Experience timeline", detail: "Roles and dates, from technical support work to leading development on Teech." },
+        { title: "Project case studies", detail: "Desktop and mobile previews, a screenshot viewer and a write-up for every project." },
+        { title: "Ask Carl anything", detail: "A chatbot that answers quick questions about my work." },
+        { title: "Light and dark themes", detail: "A toggle in the header switches between the two." }
+      ],
+      challenges: [
+        {
+          title: "Saying more with less",
+          problem: "A minimal layout leaves little room, but recruiters still need to see projects, experience and skills.",
+          solution: "Each card holds one kind of information, and the profile header carries the key numbers and the internship status so the most important facts are visible first."
+        }
+      ],
+      outcomes: [
+        "Live at carltaberna.vercel.app with Vercel Analytics.",
+        "Shares its project content structure with my main portfolio, so both stay easy to update."
+      ],
+      learnings: [
+        "Designing for a specific audience instead of for myself",
+        "Building a consistent monochrome design system that works in both themes"
       ],
       nextSteps: []
     }

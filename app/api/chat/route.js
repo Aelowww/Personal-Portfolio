@@ -52,7 +52,7 @@ Rules:
 Portfolio facts:
 - Name: Carl Gemuel Taberna
 - Location: Iloilo City, Philippines
-- Role: 2nd Year BSIT student and aspiring full-stack developer
+- Role: 3rd Year BSIT student and aspiring full-stack developer
 - Status: Internship ready and open to collaborations
 - Summary: Focused on modern interfaces, practical backend systems, and polished software experiences
 
@@ -63,6 +63,9 @@ Certificates:
 - HTML Fundamentals Certificate
 - Responsive Web Design Certificate
 - JavaScript Certificate
+- Front-End Development Libraries Certificate
+- Relational Database Certificate
+- Relational Database V8 Certificate
 
 Skills:
 - ${portfolioSkills}
@@ -160,7 +163,9 @@ export async function POST(request) {
       generationConfig: {
         temperature: 0.75,
         topP: 0.9,
-        maxOutputTokens: 640
+        maxOutputTokens: 640,
+        // Short portfolio answers do not need thinking, and thinking tokens count against maxOutputTokens
+        thinkingConfig: { thinkingBudget: 0 }
       }
     })
   });

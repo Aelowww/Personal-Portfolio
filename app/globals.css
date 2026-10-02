@@ -378,12 +378,12 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   padding-right: var(--gallery-gap);
 }
 .gallery-slide {
-  width: clamp(288px, 34vw, 420px);
-  min-width: clamp(288px, 34vw, 420px);
-  height: clamp(288px, 34vw, 420px);
+  width: clamp(240px, 26vw, 336px);
+  min-width: clamp(240px, 26vw, 336px);
+  height: auto;
+  aspect-ratio: 4 / 5;
   margin: 0;
   position: relative;
-  aspect-ratio: auto;
   background: color-mix(in srgb, var(--bg-soft) 78%, #000 22%);
   border-radius: 10px;
   overflow: hidden;
@@ -522,6 +522,29 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--accent) 52%, var(--line));
   background: color-mix(in srgb, var(--accent-soft) 42%, var(--surface-strong));
+}
+
+/* Section title with a "See all" link on the right */
+.section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.section-head > div { min-width: 0; }
+.section-see-all {
+  flex-shrink: 0;
+  margin-top: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.section-see-all::after { content: " →"; }
+.section-see-all:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 640px) {
+  .section-see-all { font-size: 0.88rem; }
 }
 
 .contact-section {
@@ -1053,9 +1076,9 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   .about-item-head { flex-direction: column; align-items: flex-start; gap: 4px; }
   .gallery-slider { max-width: 100%; }
   .gallery-slide {
-    width: 190px;
-    min-width: 190px;
-    height: 190px;
+    width: 176px;
+    min-width: 176px;
+    height: auto;
   }
 
   .chatbot-shell {
@@ -1099,7 +1122,7 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   .gallery-slide {
     width: 168px;
     min-width: 168px;
-    height: 168px;
+    height: auto;
   }
 }
 
@@ -1173,7 +1196,7 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   .gallery-slide {
     width: 132px;
     min-width: 132px;
-    height: 132px;
+    height: auto;
   }
   .chatbot-form { grid-template-columns: minmax(0, 1fr) 74px; gap: 8px; }
   .chatbot-input { padding: 10px 12px; }
@@ -1204,7 +1227,7 @@ h2 { font-size: clamp(1.6rem, 3.3vw, 2.7rem); max-width: 23ch; }
   .gallery-slide {
     width: 126px;
     min-width: 126px;
-    height: 126px;
+    height: auto;
   }
 }
 

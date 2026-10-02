@@ -2,11 +2,29 @@ import Link from "next/link";
 
 const certificates = [
   {
+    title: "Front-End Development Libraries Certificate",
+    issuer: "freeCodeCamp",
+    year: "2026",
+    link: "/certificates/front-end-development-libraries/view",
+    previewImage: "/Certificates/FRONT-END%20DEVELOPMENT%20LIBRARIES.png",
+    previewScale: 1.2,
+    previewShiftY: "-2px"
+  },
+  {
     title: "Responsive Web Design Certificate",
     issuer: "freeCodeCamp",
     year: "2026",
     link: "/certificates/responsive-web-design/view",
     previewImage: "/Certificates/RESPONSIVE%20WEB%20DESIGN%20CERTIFICATE.png",
+    previewScale: 1.2,
+    previewShiftY: "-2px"
+  },
+  {
+    title: "Relational Database V8 Certificate",
+    issuer: "freeCodeCamp",
+    year: "2026",
+    link: "/certificates/relational-database-v8/view",
+    previewImage: "/Certificates/RELATIONAL%20DATABASE%20V8%20CERTIFICATE.png",
     previewScale: 1.2,
     previewShiftY: "-2px"
   },
@@ -25,6 +43,15 @@ const certificates = [
     year: "2026",
     link: "/certificates/javascript/view",
     previewImage: "/Certificates/JAVASCRIPT%20CERTIFICATE.png",
+    previewScale: 1.2,
+    previewShiftY: "-2px"
+  },
+  {
+    title: "Relational Database Certificate",
+    issuer: "freeCodeCamp",
+    year: "2026",
+    link: "/certificates/relational-database/view",
+    previewImage: "/Certificates/RELATIONAL%20DATABASE%20CERTIFICATE.png",
     previewScale: 1.2,
     previewShiftY: "-2px"
   }

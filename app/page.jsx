@@ -10,11 +10,29 @@ import { skillGroups, skills } from "./data/skills";
 
 const certificates = [
   {
+    title: "Front-End Development Libraries Certificate",
+    issuer: "freeCodeCamp",
+    year: "2026",
+    link: "/certificates/front-end-development-libraries/view",
+    previewImage: "/Certificates/FRONT-END%20DEVELOPMENT%20LIBRARIES.png",
+    previewScale: 1.2,
+    previewShiftY: "-2px"
+  },
+  {
     title: "Responsive Web Design Certificate",
     issuer: "freeCodeCamp",
     year: "2026",
     link: "/certificates/responsive-web-design/view",
     previewImage: "/Certificates/RESPONSIVE%20WEB%20DESIGN%20CERTIFICATE.png",
+    previewScale: 1.2,
+    previewShiftY: "-2px"
+  },
+  {
+    title: "Relational Database V8 Certificate",
+    issuer: "freeCodeCamp",
+    year: "2026",
+    link: "/certificates/relational-database-v8/view",
+    previewImage: "/Certificates/RELATIONAL%20DATABASE%20V8%20CERTIFICATE.png",
     previewScale: 1.2,
     previewShiftY: "-2px"
   },
@@ -35,10 +53,19 @@ const certificates = [
     previewImage: "/Certificates/JAVASCRIPT%20CERTIFICATE.png",
     previewScale: 1.2,
     previewShiftY: "-2px"
+  },
+  {
+    title: "Relational Database Certificate",
+    issuer: "freeCodeCamp",
+    year: "2026",
+    link: "/certificates/relational-database/view",
+    previewImage: "/Certificates/RELATIONAL%20DATABASE%20CERTIFICATE.png",
+    previewScale: 1.2,
+    previewShiftY: "-2px"
   }
 ];
 
-const galleryVersion = "20260318-0257";
+const galleryVersion = "20261002-2100";
 const personStructuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -66,36 +93,45 @@ const personStructuredData = {
   ]
 };
 
+// Each photo is cropped to the same 4:5 frame with the head at the same height.
 const galleryPhotos = [
   {
-    src: `/Gallery/9ec30d49-45f3-4d42-897a-1881897309df.jpg?v=${galleryVersion}`,
+    src: `/Gallery/photo-1.jpg?v=${galleryVersion}`,
     alt: "Portfolio gallery photo 1"
   },
   {
-    src: `/Gallery/c9cb84e0-381d-483d-b734-c4891251255f.jpg?v=${galleryVersion}`,
+    src: `/Gallery/photo-5.jpg?v=${galleryVersion}`,
     alt: "Portfolio gallery photo 2"
   },
   {
-    src: `/Gallery/a4c16df2-f70c-48b1-8249-bec083a48e53.jpg?v=${galleryVersion}`,
+    src: `/Gallery/photo-2.jpg?v=${galleryVersion}`,
     alt: "Portfolio gallery photo 3"
   },
   {
-    src: `/Gallery/9dabe1c1-c2a9-48e0-9bd6-344eb0c3abde.jpg?v=${galleryVersion}`,
+    src: `/Gallery/photo-6.jpg?v=${galleryVersion}`,
     alt: "Portfolio gallery photo 4"
   },
   {
-    src: `/Gallery/e5ed610b-b3b9-4c5f-9c74-736ae82365c9.jpg?v=${galleryVersion}`,
+    src: `/Gallery/photo-3.jpg?v=${galleryVersion}`,
     alt: "Portfolio gallery photo 5"
   },
   {
-    src: `/Gallery/d6a84459-47ff-4597-a90d-7551e9c06345.jpg?v=${galleryVersion}`,
+    src: `/Gallery/photo-7.jpg?v=${galleryVersion}`,
     alt: "Portfolio gallery photo 6"
+  },
+  {
+    src: `/Gallery/photo-4.jpg?v=${galleryVersion}`,
+    alt: "Portfolio gallery photo 7"
+  },
+  {
+    src: `/Gallery/photo-8.jpg?v=${galleryVersion}`,
+    alt: "Portfolio gallery photo 8"
   }
 ];
 
 const educationTimeline = [
   {
-    title: "BS Information Technology - 2nd Year (Current)",
+    title: "BS Information Technology - 3rd Year (Current)",
     detail: "Western Institute of Technology - Started IT track in 2024",
     year: "2026"
   },
@@ -123,40 +159,38 @@ const educationTimeline = [
 
 const experienceTimeline = [
   {
-    title: "Head Full-Stack Developer - Teech (School Project)",
-    detail: "Leading full-stack development of a student–faculty consultation booking system built with Next.js, TypeScript and Supabase.",
+    title: "Head Full-Stack Developer - Teech (School Web Application Project)",
+    detail: "Built a student–faculty consultation booking app.",
     year: "Sep 2026"
   },
   {
-    title: "Technical Support - iQor",
-    detail: "Troubleshot router and satellite TV issues for customers.",
+    title: "Network & Broadband Technical Associate - iQor (Bell Canada)",
+    detail: "Configured Bell internet, routers and satellite TV.",
     year: "Jul 2026"
   },
   {
-    title: "Technical Support - Transcom",
-    detail: "Troubleshot telecommunication systems for customers.",
+    title: "Telecommunication Associate - Transcom (Xfinity)",
+    detail: "Troubleshot Xfinity Mobile devices and phone plans.",
     year: "Apr 2026"
   },
   {
-    title: "Project Manager - School Web Application Project",
-    detail: "Led planning and execution for a school web application project.",
+    title: "Project Manager - KonektBarangay (School Web Application Project)",
+    detail: "Led planning and delivery of a barangay e-services app.",
     year: "Mar 2026"
   },
   {
     title: "Operations Associate - Sagility, Iloilo City",
-    detail:
-      "Delivered technology-enabled healthcare support by managing appointment systems, updating patient scheduling records, and coordinating accurate service workflows.",
+    detail: "Managed healthcare appointment and scheduling systems.",
     year: "Jun 2025"
   },
   {
     title: "Started Programming Journey",
-    detail: "Began learning programming fundamentals and building early practice projects.",
+    detail: "Learned programming basics and built practice projects.",
     year: "Jan 2024"
   },
   {
     title: "Operations Associate - WNS, Iloilo City",
-    detail:
-      "Provided technology-focused travel support by handling reservation systems, itinerary updates, refund processing, and real-time booking issue resolution.",
+    detail: "Handled travel reservation systems and booking issues.",
     year: "Mar 2023"
   }
 ];
@@ -164,6 +198,7 @@ const experienceTimeline = [
 export default function Home() {
   const year = new Date().getFullYear();
   const previewCertificates = certificates.slice(0, 3);
+  const previewProjects = projects.slice(0, 3);
 
   return (
     <div className="site">
@@ -191,7 +226,7 @@ export default function Home() {
               <div className="hero-quick-intro" aria-label="Quick introduction">
                 <span>Based in Iloilo City</span>
                 <span aria-hidden="true">|</span>
-                <span>2nd Year BSIT</span>
+                <span>3rd Year BSIT</span>
                 <span aria-hidden="true">|</span>
                 <span>Open to Internship</span>
               </div>
@@ -304,8 +339,15 @@ export default function Home() {
         </section>
 
         <section id="skills" className="panel tech skills-section">
-          <p className="eyebrow section-chip">SKILLS</p>
-          <h2>The tools and technologies I build with.</h2>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow section-chip">SKILLS</p>
+              <h2>The tools and technologies I build with.</h2>
+            </div>
+            <Link className="section-see-all" href="/skills">
+              See all
+            </Link>
+          </div>
           <div className="skills-groups">
             {skillGroups.map((group) => (
               <section key={group.key} className="skills-group">
@@ -326,30 +368,39 @@ export default function Home() {
               </section>
             ))}
           </div>
-          <div className="skills-view-all-wrap">
-            <Link className="skills-view-all" href="/skills">
-              Show All Skills
-            </Link>
-          </div>
         </section>
 
         <section id="projects" className="panel projects">
-          <p className="eyebrow section-chip">PROJECTS</p>
-          <h2>Selected work, with the thinking behind it.</h2>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow section-chip">PROJECTS</p>
+              <h2>Selected work, with the thinking behind it.</h2>
+            </div>
+            <Link className="section-see-all" href="/projects">
+              See all
+            </Link>
+          </div>
           <p className="projects-intro">
             Switch between desktop and mobile previews, open the screenshots, or read the case study to see the
             problem, my approach, and what I learned.
           </p>
           <div className="project-list">
-            {projects.map((project, index) => (
+            {previewProjects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} index={index} />
             ))}
           </div>
         </section>
 
         <section id="certificates" className="panel certificates">
-          <p className="eyebrow section-chip">CERTIFICATES</p>
-          <h2>Certifications and credentials I have earned.</h2>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow section-chip">CERTIFICATES</p>
+              <h2>Certifications and credentials I have earned.</h2>
+            </div>
+            <Link className="section-see-all" href="/certificates">
+              See all
+            </Link>
+          </div>
           <div className="certificate-cards">
             {previewCertificates.map((certificate) => (
               <article key={certificate.title} className="certificate-card">
@@ -380,11 +431,6 @@ export default function Home() {
                 )}
               </article>
             ))}
-          </div>
-          <div className="certificates-view-all-wrap">
-            <Link className="certificates-view-all" href="/certificates">
-              View All Certificates
-            </Link>
           </div>
         </section>
 
