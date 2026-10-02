@@ -2,7 +2,7 @@ export const metadata = {
   title: "LEGACY JAVASCRIPT ALGORITHMS AND DATA STRUCTURES V7 CERTIFICATE"
 };
 
-const IMAGE_SRC = "/Certificates/LEGACY%20JAVASCRIPT%20ALGORITHMS%20AND%20DATA%20STRUCTURES%20V7.png";
+const PDF_SRC = "/Certificates/LEGACY%20JAVASCRIPT%20ALGORITHMS%20AND%20DATA%20STRUCTURES%20V7.pdf";
 
 export default function LegacyJavascriptAlgorithmsV7CertificateViewPage() {
   return (
@@ -12,20 +12,17 @@ export default function LegacyJavascriptAlgorithmsV7CertificateViewPage() {
         minHeight: "100vh",
         margin: 0,
         padding: "0",
-        background: "#0a1020",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
+        background: "#0a1020"
       }}
     >
-      <img
-        src={IMAGE_SRC}
-        alt="LEGACY JAVASCRIPT ALGORITHMS AND DATA STRUCTURES V7 CERTIFICATE"
+      <iframe
+        title="LEGACY JAVASCRIPT ALGORITHMS AND DATA STRUCTURES V7 CERTIFICATE PDF"
+        src={PDF_SRC}
         style={{
-          display: "block",
-          maxWidth: "100%",
-          maxHeight: "100vh",
-          objectFit: "contain"
+          border: "0",
+          width: "100%",
+          height: "100vh",
+          display: "block"
         }}
       />
     </main>

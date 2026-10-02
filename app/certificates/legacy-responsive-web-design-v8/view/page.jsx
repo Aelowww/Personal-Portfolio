@@ -2,7 +2,7 @@ export const metadata = {
   title: "LEGACY RESPONSIVE WEB DESIGN V8 CERTIFICATE"
 };
 
-const IMAGE_SRC = "/Certificates/LEGACY%20RESPONSIVE%20WEB%20DESIGN%20V8.png";
+const PDF_SRC = "/Certificates/LEGACY%20RESPONSIVE%20WEB%20DESIGN%20V8.pdf";
 
 export default function LegacyResponsiveWebDesignV8CertificateViewPage() {
   return (
@@ -12,20 +12,17 @@ export default function LegacyResponsiveWebDesignV8CertificateViewPage() {
         minHeight: "100vh",
         margin: 0,
         padding: "0",
-        background: "#0a1020",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
+        background: "#0a1020"
       }}
     >
-      <img
-        src={IMAGE_SRC}
-        alt="LEGACY RESPONSIVE WEB DESIGN V8 CERTIFICATE"
+      <iframe
+        title="LEGACY RESPONSIVE WEB DESIGN V8 CERTIFICATE PDF"
+        src={PDF_SRC}
         style={{
-          display: "block",
-          maxWidth: "100%",
-          maxHeight: "100vh",
-          objectFit: "contain"
+          border: "0",
+          width: "100%",
+          height: "100vh",
+          display: "block"
         }}
       />
     </main>
