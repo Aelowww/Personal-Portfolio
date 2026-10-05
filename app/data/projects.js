@@ -441,7 +441,7 @@ export const projects = [
       { src: "/projects/professional-portfolio/desktop-home.webp", alt: "Profile header, quick stats, about and experience cards", caption: "Profile header with quick stats and experience timeline", viewport: "desktop", ...desktop },
       { src: "/projects/professional-portfolio/desktop-skills.webp", alt: "Tech stack, certificates, education and social links cards", caption: "Tech stack with official brand logos, plus education and certificates", viewport: "desktop", ...desktop },
       { src: "/projects/professional-portfolio/desktop-projects.webp", alt: "Projects page with desktop and phone previews", caption: "Projects page with case study, live site and source code links", viewport: "desktop", ...desktop },
-      { src: "/projects/professional-portfolio/desktop-case-study.webp", alt: "Teech case study page with a phone preview", caption: "Case study page with a device preview", viewport: "desktop", ...desktop },
+      { src: "/projects/professional-portfolio/desktop-case-study.webp", alt: "Teech case study page with a device preview", caption: "Case study page with a device preview", viewport: "desktop", ...desktop },
       { src: "/projects/professional-portfolio/desktop-certificates.webp", alt: "Certificates page", caption: "Certificates overview", viewport: "desktop", ...desktop },
       { src: "/projects/professional-portfolio/mobile-home.webp", alt: "Profile header on mobile", caption: "Home on a phone", viewport: "mobile", ...mobile },
       { src: "/projects/professional-portfolio/mobile-skills.webp", alt: "Tech stack on mobile", caption: "Tech stack on a phone", viewport: "mobile", ...mobile },
