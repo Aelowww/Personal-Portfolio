@@ -122,7 +122,7 @@ export function HeroIdentity({ className }) {
   return (
     <div className={className}>
       <h3>Carl Gemuel Taberna</h3>
-      <p className="aspiring-line">3RD YEAR BSIT STUDENT / ASPIRING FULL-STACK DEVELOPER</p>
+      <p className="aspiring-line">3RD YEAR BSIT STUDENT / ASPIRING WEB DEVELOPER</p>
       <a
         className="location-link"
         href="https://www.google.com/maps/search/?api=1&query=Iloilo+City+Philippines"

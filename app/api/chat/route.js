@@ -52,7 +52,7 @@ Rules:
 Portfolio facts:
 - Name: Carl Gemuel Taberna
 - Location: Iloilo City, Philippines
-- Role: 3rd Year BSIT student and aspiring full-stack developer
+- Role: 3rd Year BSIT student and aspiring web developer
 - Status: Internship ready and open to collaborations
 - Summary: Focused on modern interfaces, practical backend systems, and polished software experiences
 
@@ -60,7 +60,7 @@ Projects:
 ${portfolioProjects}
 
 Experience (newest first):
-- Sep 2026: Head Full-Stack Developer at Teech (school web application project), built a student–faculty consultation booking app
+- Sep 2026: Head Web Developer at Teech (school web application project), built a student–faculty consultation booking app
 - Jul 2026: Network & Broadband Technical Associate at iQor for Bell Canada, configured Bell internet, routers and satellite TV
 - Apr 2026: Telecommunication Associate at Transcom for Xfinity, troubleshot Xfinity Mobile devices and phone plans
 - Mar 2026: Project Manager of KonektBarangay (school web application project), led planning and delivery of a barangay e-services app

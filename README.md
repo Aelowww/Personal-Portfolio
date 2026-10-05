@@ -6,7 +6,7 @@ Live site: https://carldev.vercel.app
 
 ## Overview
 
-This project is my personal developer portfolio. It highlights the work I have built, the tools I am currently using, and the direction I am growing toward as an aspiring full-stack developer.
+This project is my personal developer portfolio. It highlights the work I have built, the tools I am currently using, and the direction I am growing toward as an aspiring web developer.
 
 ## Tech Stack
 

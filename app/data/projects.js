@@ -10,7 +10,7 @@ export const projects = [
     title: "KonektBarangay",
     category: "E-Services Platform",
     year: "2026",
-    role: "Full-Stack Developer",
+    role: "Web Developer",
     type: "Web application",
     status: "Live",
     summary:
@@ -122,7 +122,7 @@ export const projects = [
     title: "Teech",
     category: "Consultation Booking System",
     year: "2026",
-    role: "Head Full-Stack Developer",
+    role: "Head Web Developer",
     type: "Web app",
     status: "Live",
     summary:
@@ -231,11 +231,11 @@ export const projects = [
     title: "Awesome ToDo's",
     category: "Student Planner",
     year: "2026",
-    role: "Full-Stack Developer",
+    role: "Web Developer",
     type: "Web app (PWA)",
     status: "Live",
     summary:
-      "A full-stack planner for students that keeps tasks, deadlines, class schedules and grades in one place, with a focus timer and Study Buddy, an AI assistant that knows your tasks and classes.",
+      "A web-based planner for students that keeps tasks, deadlines, class schedules and grades in one place, with a focus timer and Study Buddy, an AI assistant that knows your tasks and classes.",
     highlights: [
       "Tasks, calendar, timetable and grade tracker in one app",
       "Study Buddy AI chat and \"Break down with AI\" for big tasks",

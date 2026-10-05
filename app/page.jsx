@@ -99,9 +99,9 @@ const personStructuredData = {
   name: "Carl Gemuel Taberna",
   url: "https://carldev.vercel.app",
   image: "https://carldev.vercel.app/Portfolio-Photo/Portfolio%20Photo.jpg",
-  jobTitle: "Aspiring Full-Stack Developer",
+  jobTitle: "Aspiring Web Developer",
   description:
-    "Portfolio of Carl Gemuel Taberna, a BSIT student and aspiring full-stack developer based in Iloilo City, Philippines.",
+    "Portfolio of Carl Gemuel Taberna, a BSIT student and aspiring web developer based in Iloilo City, Philippines.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Iloilo City",
@@ -186,7 +186,7 @@ const educationTimeline = [
 
 const experienceTimeline = [
   {
-    title: "Head Full-Stack Developer - Teech (School Web Application Project)",
+    title: "Head Web Developer - Teech (School Web Application Project)",
     detail: "Built a student–faculty consultation booking app.",
     year: "Sep 2026"
   },
@@ -259,7 +259,7 @@ export default function Home() {
               </div>
               <div className="hero-status-chips" aria-label="Current status">
                 <span>Internship Ready</span>
-                <span>Full-Stack Track</span>
+                <span>Web Development Track</span>
                 <span>Open to Collaborations</span>
               </div>
             </div>
@@ -267,11 +267,11 @@ export default function Home() {
             <HeroIdentity className="hero-id hero-id-right" />
 
             <div className="hero-head">
-              <h1>I build clean, modern web experiences with strong full-stack fundamentals.</h1>
+              <h1>I build clean, modern web experiences with solid web development fundamentals.</h1>
             </div>
 
             <p className="intro">
-              Aspiring full-stack developer focused on building modern interfaces, practical backend systems, and
+              Aspiring web developer focused on building modern interfaces, practical backend systems, and
               polished software experiences.
             </p>
 
