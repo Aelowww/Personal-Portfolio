@@ -14,34 +14,36 @@ export const projects = [
     type: "Web application",
     status: "Live",
     summary:
-      "A barangay e-services platform where residents request documents, book a claim schedule, and track each request online, while staff review and update requests from an admin dashboard.",
+      "A barangay e-services platform where verified residents request documents, book a claim schedule, file blotter reports and follow barangay news, while staff verify residents, review requests and publish announcements from an admin dashboard.",
     highlights: [
-      "Role-based admin access checked on the server",
-      "Real-time notifications and request updates",
-      "Guided request → appointment → summary flow"
+      "Email codes and ID verification before residents can request documents",
+      "Blotter reports and News & Events alongside document requests",
+      "Database rules that block role escalation and self-approval"
     ],
     link: "https://konektbarangay.vercel.app/",
     repo: "https://github.com/Aelowww/KonektBarangay",
     techStack: [
-      { name: "Next.js", purpose: "App Router pages and a proxy that guards admin routes" },
-      { name: "TypeScript", purpose: "Typed pages and data handling" },
-      { name: "Supabase Auth", purpose: "Registration, login, password reset, sessions" },
-      { name: "PostgreSQL", purpose: "Profiles, document requests and notifications tables" },
-      { name: "Supabase Realtime", purpose: "Live admin queue and notification badge" },
-      { name: "Tailwind CSS", purpose: "Responsive styling alongside CSS modules" },
+      { name: "Next.js", purpose: "App Router pages and a proxy that guards resident and admin routes" },
+      { name: "TypeScript", purpose: "Typed pages, shared document and community models" },
+      { name: "Supabase Auth", purpose: "Registration, 6-digit email codes, password reset with codes, sessions" },
+      { name: "PostgreSQL", purpose: "Profiles, requests, blotter reports, announcements and notifications with row-level security" },
+      { name: "Supabase Storage", purpose: "Private bucket for resident ID photos, readable only by staff" },
+      { name: "Supabase Realtime", purpose: "Live admin queue, dashboard and notification badge" },
+      { name: "Cloudflare Turnstile", purpose: "Bot check on sign-up and login" },
+      { name: "Framer Motion", purpose: "Page and component transitions" },
       { name: "Vercel", purpose: "Hosting with automatic deploys from GitHub" }
     ],
     cover: {
-      desktop: { src: "/projects/konektbarangay/desktop-home.webp", alt: "KonektBarangay home page on desktop", ...desktop },
-      mobile: { src: "/projects/konektbarangay/mobile-home.webp", alt: "KonektBarangay home page on mobile", ...mobile }
+      desktop: { src: "/projects/konektbarangay/desktop-home.webp", alt: "KonektBarangay resident dashboard on desktop", ...desktop },
+      mobile: { src: "/projects/konektbarangay/mobile-home.webp", alt: "KonektBarangay resident dashboard on mobile", ...mobile }
     },
     gallery: [
-      { src: "/projects/konektbarangay/desktop-home.webp", alt: "KonektBarangay landing page", caption: "Landing page with the two main actions", viewport: "desktop", ...desktop },
+      { src: "/projects/konektbarangay/desktop-home.webp", alt: "Resident dashboard with request totals, quick services and the next appointment", caption: "Resident dashboard: request totals, quick services and upcoming appointment", viewport: "desktop", ...desktop },
       { src: "/projects/konektbarangay/desktop-request-document.webp", alt: "Document types residents can request", caption: "Choose from nine barangay documents", viewport: "desktop", ...desktop },
       { src: "/projects/konektbarangay/desktop-set-appointment.webp", alt: "Appointment calendar with a date and time selected", caption: "Pick a date and an hourly slot within office hours", viewport: "desktop", ...desktop },
       { src: "/projects/konektbarangay/desktop-request-summary.webp", alt: "Request summary before submission", caption: "Review the request before submitting", viewport: "desktop", ...desktop },
       { src: "/projects/konektbarangay/desktop-manage-requests.webp", alt: "Admin request queue with status filter and search", caption: "Admin queue: view, approve, reject or mark completed", viewport: "desktop", ...desktop },
-      { src: "/projects/konektbarangay/mobile-home.webp", alt: "KonektBarangay landing page on mobile", caption: "Landing page on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/konektbarangay/mobile-home.webp", alt: "Resident dashboard on mobile", caption: "Resident dashboard on a phone", viewport: "mobile", ...mobile },
       { src: "/projects/konektbarangay/mobile-request-document.webp", alt: "Document selection on mobile", caption: "Requesting a document on a phone", viewport: "mobile", ...mobile },
       { src: "/projects/konektbarangay/mobile-set-appointment.webp", alt: "Appointment calendar on mobile", caption: "Booking a claim schedule on a phone", viewport: "mobile", ...mobile },
       { src: "/projects/konektbarangay/mobile-request-summary.webp", alt: "Request summary on mobile", caption: "Request summary on a phone", viewport: "mobile", ...mobile },
@@ -49,58 +51,69 @@ export const projects = [
     ],
     caseStudy: {
       overview:
-        "KonektBarangay moves common barangay transactions online. Residents create an account, request documents such as a Barangay Clearance or Barangay Certificate, choose a date and time to claim them, and follow the request from pending to completed. Barangay staff get a dashboard to review, approve, or reject requests.",
+        "KonektBarangay moves common barangay transactions online. Residents sign up, confirm their email with a 6-digit code, and verify their identity by uploading a valid ID. Once verified they can request documents such as a Barangay Clearance or Certificate of Indigency, choose a date and time to claim them, file blotter reports, and follow barangay news and events. Staff get an admin side to verify residents, process requests and reports, and publish announcements.",
       problem:
-        "Getting a barangay document usually means going to the hall, lining up, and coming back or calling to ask whether it is ready. Residents have little visibility into their request, and staff track everything by hand.",
+        "Getting a barangay document usually means going to the hall, lining up, and coming back or calling to ask whether it is ready. Residents have little visibility into their requests or reports, and staff track everything by hand. Moving this online also means making sure the person requesting a document really is a resident.",
       goals: [
         "Let residents request documents and book a claim schedule without a first visit",
-        "Show a clear status for every request",
-        "Give staff one place to review and update requests",
-        "Keep admin tools locked to admin accounts"
+        "Confirm each resident's email and identity before they can make requests",
+        "Show a clear status for every request and blotter report",
+        "Give staff one place to verify residents, process requests and post announcements",
+        "Keep admin tools and approvals locked to staff accounts"
       ],
       approach:
-        "I built it on Next.js with TypeScript and used Supabase for authentication, the Postgres database, and realtime updates. The request is split into three short steps (choose a document, pick an appointment, review the summary) so each screen stays simple on a phone. The draft is kept in the browser between steps, and a request is only written to the database once the resident confirms the summary.",
+        "I built it on Next.js with TypeScript and used Supabase for authentication, the Postgres database, file storage and realtime updates. A shared app shell gives residents and staff the same navigation on phone and desktop. Access is enforced in the database with row-level security, so the rules hold even if someone calls the API directly. The request flow stays split into three short steps (choose a document, pick an appointment, review the summary), and a request is only written to the database once the resident confirms the summary.",
       features: [
+        { title: "Email verification codes", detail: "New residents confirm their email with a 6-digit code before they can sign in, and forgotten passwords are reset with a code as well. Codes expire after 15 minutes." },
+        { title: "Resident ID verification", detail: "Residents upload a photo of a valid ID after signing in. Staff review it from the admin side and approve or reject it with a reason the resident can see, and document requests unlock once the resident is verified." },
         { title: "Guided document requests", detail: "Nine document types, from Barangay Clearance to First-Time Job Seeker, plus an \"Other\" option, in a three-step flow that ends with a summary the resident reviews before submitting." },
         { title: "Appointment calendar", detail: "A month calendar with hourly slots inside office hours (Monday to Friday, 8 AM to 5 PM). Fully booked and unavailable days are marked." },
-        { title: "Resident dashboard", detail: "Residents see every request they have made and its current status." },
-        { title: "Admin request queue", detail: "Staff filter by pending, approved, rejected, cancelled or completed, search by name, document type or request ID, view the full details, and approve, reject or mark a request completed." },
-        { title: "Live notifications", detail: "Status changes create notifications, and the header badge updates without a page refresh." },
-        { title: "Secure registration", detail: "Password rules are checked as you type: length, upper and lower case, a number, and a special character." }
+        { title: "Blotter reports", detail: "Residents file incident reports with the type, date, location and a written statement. Staff move each case through filed, under review, scheduled, resolved or dismissed, and can set a hearing date." },
+        { title: "News & Events", detail: "Staff publish news, events and advisories. Residents see upcoming events on their dashboard and the full list on the News & Events page." },
+        { title: "Resident dashboard", detail: "Request totals by status, quick links to common documents, the next appointment, upcoming events and recent requests on one screen." },
+        { title: "Admin tools", detail: "Staff verify residents, filter and search requests, update blotter cases and manage announcements, with live updates and notifications." }
       ],
       challenges: [
+        {
+          title: "Anyone could register as an admin",
+          problem: "The sign-up trigger copied the account role from sign-up data that the browser controls, so a crafted request could create an admin account.",
+          solution:
+            "I rewrote the trigger so every new account is created as a resident. Staff roles can only be granted from the database, never from the sign-up form."
+        },
+        {
+          title: "Residents could approve their own requests",
+          problem: "The update policy let residents change their own request, which meant a direct API call could set it to approved.",
+          solution:
+            "I added a database trigger that only lets residents cancel their own pending requests. Every other status change has to come from staff."
+        },
+        {
+          title: "Verifying residents without exposing their IDs",
+          problem: "ID photos are sensitive, but staff need to see them to verify a resident.",
+          solution:
+            "Uploads go to a private storage bucket. Residents can only add their own photo, staff view it through short-lived signed links, and residents who are not yet verified can't submit document requests."
+        },
         {
           title: "Admin pages had to be protected, not just hidden",
           problem: "Removing admin links from the menu does not stop someone from typing /admin in the address bar.",
           solution:
-            "I added a Next.js proxy that runs before any /admin page loads. It reads the Supabase session from cookies, looks up the user's role in the profiles table, sends signed-out visitors to login (with a link back), and redirects non-admins to their own dashboard."
-        },
-        {
-          title: "Statuses had to stay in sync without refreshing",
-          problem: "Staff and residents were looking at stale data until they reloaded the page.",
-          solution:
-            "I subscribed to Supabase Realtime channels for the admin request list and for each user's notifications, and removed the subscriptions when the page unmounts so they don't pile up."
-        },
-        {
-          title: "Keeping a multi-step form reliable",
-          problem: "Data from the first step had to survive navigation to the appointment and summary pages.",
-          solution:
-            "The draft is saved in localStorage between steps. The summary page checks for an active session before submitting, then clears the draft so a finished request can't be sent twice."
+            "A Next.js proxy runs before any protected page loads. It reads the Supabase session from cookies, checks the user's role, sends signed-out visitors to login with a link back, and redirects non-staff to their own dashboard."
         }
       ],
       outcomes: [
         "The full request lifecycle works end to end: submitted, pending, approved or rejected, then completed, with a notification at each step.",
+        "Every account is email-verified, and residents are identity-verified before they can request documents.",
         "The layout adapts from phone to desktop, since most residents are expected to use a phone.",
         "Deployed on Vercel with automatic deploys on every push to GitHub."
       ],
       learnings: [
-        "Authorization belongs on the server. Hiding UI is only a convenience.",
-        "Designing related tables (profiles, requests, notifications) before building screens saved rework later.",
+        "Authorization belongs in the database. Hiding UI and checking roles in the app are only conveniences.",
+        "Never trust data the browser sends at sign-up, including fields that look internal.",
+        "Designing related tables (profiles, requests, reports, announcements, notifications) before building screens saved rework later.",
         "Realtime features need cleanup as much as setup."
       ],
       nextSteps: [
         "Send an email or SMS reminder before an appointment",
-        "Add automated tests for the request flow"
+        "Add automated tests for the request and verification flows"
       ]
     }
   },
