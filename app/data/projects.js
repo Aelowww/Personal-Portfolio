@@ -118,6 +118,99 @@ export const projects = [
     }
   },
   {
+    slug: "awesome-todos",
+    title: "Awesome ToDo's",
+    category: "Student Planner",
+    year: "2026",
+    role: "Web Developer",
+    type: "Web app (PWA)",
+    status: "Live",
+    summary:
+      "A web-based planner for students that keeps tasks, deadlines, class schedules and grades in one place, with a focus timer and Study Buddy, an AI assistant that knows your tasks and classes.",
+    highlights: [
+      "Tasks, calendar, timetable and grade tracker in one app",
+      "Study Buddy AI chat and \"Break down with AI\" for big tasks",
+      "Separate phone and desktop layouts, installable as an app"
+    ],
+    link: "https://awesometodos-web.onrender.com/",
+    repo: "https://github.com/Aelowww/AwesomeToDo-s",
+    techStack: [
+      { name: "React", purpose: "Pages, components and app state" },
+      { name: "Vite", purpose: "Development server and production build" },
+      { name: "Node.js + Express", purpose: "REST API for tasks, accounts, classes and grades, plus static hosting of the built app" },
+      { name: "MongoDB Atlas", purpose: "Stores users, tasks, classes and grades" },
+      { name: "JWT", purpose: "Sign-in sessions stored in cookies" },
+      { name: "Gemini API", purpose: "Study Buddy chat and AI task breakdown" },
+      { name: "Nodemailer", purpose: "Password reset emails" },
+      { name: "Render", purpose: "Hosts the API and front end together, deployed from GitHub" }
+    ],
+    cover: {
+      desktop: { src: "/projects/awesome-todos/desktop-home.webp", alt: "Awesome ToDo's dashboard on desktop", ...desktop },
+      mobile: { src: "/projects/awesome-todos/mobile-home.webp", alt: "Awesome ToDo's dashboard on mobile", ...mobile }
+    },
+    gallery: [
+      { src: "/projects/awesome-todos/desktop-home.webp", alt: "Dashboard with progress ring, stat tiles, week strip and today's classes", caption: "Dashboard: today's progress, classes and 7-day activity", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/desktop-tasks.webp", alt: "Task list with filters, search and sorting", caption: "Tasks with All, Today, Next 7 days, Overdue and Done views", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/desktop-classes.webp", alt: "Weekly class timetable with rooms", caption: "Weekly class schedule with rooms", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/desktop-grades.webp", alt: "Grade tracker with target grade per class", caption: "Grade tracker with a target-grade calculator", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/desktop-focus.webp", alt: "Pomodoro focus timer", caption: "Focus timer linked to a task", viewport: "desktop", ...desktop },
+      { src: "/projects/awesome-todos/mobile-home.webp", alt: "Dashboard on mobile", caption: "Dashboard on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/awesome-todos/mobile-tasks.webp", alt: "Task list on mobile", caption: "Tasks on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/awesome-todos/mobile-calendar.webp", alt: "Deadline calendar on mobile", caption: "Deadline calendar on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/awesome-todos/mobile-classes.webp", alt: "Class schedule on mobile", caption: "Class schedule on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/awesome-todos/mobile-grades.webp", alt: "Grade tracker on mobile", caption: "Grade tracker on a phone", viewport: "mobile", ...mobile }
+    ],
+    caseStudy: {
+      overview:
+        "Awesome ToDo's started as a simple to-do list and grew into a planner for students. You add tasks with a subject, type, priority, due date and steps, see what's due today and this week, keep your class schedule and grades, and stay focused with a built-in timer. Study Buddy, the AI assistant, can answer questions about your schedule and split a big task into steps.",
+      problem:
+        "Students keep track of assignments, exams and classes across sticky notes, group chats and memory, and things get missed. A plain to-do list doesn't know about your classes or how close your grades are to your goal.",
+      goals: [
+        "Put tasks, deadlines, classes and grades in one place",
+        "Show what matters today at a glance",
+        "Help students start big tasks and stay focused",
+        "Work well on both phones and computers"
+      ],
+      approach:
+        "The React app talks to an Express REST API split into tasks, accounts, and classes and grades. In production, Express serves the built React files and falls back to index.html for any non-API route, so one Render service hosts everything. Class names double as task subjects, which connects the timetable, tasks and dashboard. Study Buddy gets the student's tasks and classes as context, and the AI code tries a newer Gemini model first and falls back when one is busy.",
+      features: [
+        { title: "Detailed tasks", detail: "Each task can have a subject, type (task, assignment, exam, project or reading), priority, due date, steps and notes." },
+        { title: "Smart views", detail: "All, Today, Next 7 days, Overdue and Done, with search, subject and type filters, and sorting." },
+        { title: "Dashboard", detail: "A progress ring, stat tiles, a week strip, today's classes and a 7-day activity chart." },
+        { title: "Calendar", detail: "Every deadline on a month calendar. Tap a day to see or add tasks for it." },
+        { title: "Classes and grades", detail: "A weekly timetable with rooms and a grade tracker that shows what you need to reach a target grade." },
+        { title: "Focus timer", detail: "Pomodoro sessions with one-tap lengths, a custom time and an optional task to work on." },
+        { title: "Study Buddy AI", detail: "A chat that knows your tasks and classes, plus \"Break down with AI\" to split a big task into steps." },
+        { title: "Accounts", detail: "Welcome tour, profile photo, school and year level, email and password changes, and password reset." },
+        { title: "Light and dark mode", detail: "Light, dark or match your device, with separate phone and desktop layouts and PWA install." }
+      ],
+      challenges: [
+        {
+          title: "Database connection failing on some networks",
+          problem: "MongoDB Atlas connection strings need an SRV DNS lookup, which some local DNS providers block.",
+          solution: "I pointed Node's DNS resolver at public resolvers (8.8.8.8 and 1.1.1.1) before connecting, which made local development reliable."
+        },
+        {
+          title: "Keeping the AI assistant available",
+          problem: "A single AI model can be busy or rate-limited, which would leave Study Buddy unusable.",
+          solution: "The server tries a list of Gemini models in order and moves to the next one when Google reports it busy or unavailable. Without an API key, the rest of the app still works and Study Buddy explains that it isn't switched on yet."
+        }
+      ],
+      outcomes: [
+        "Live on Render with automatic deploys from the main branch.",
+        "Grew from a four-route CRUD app into a full planner with accounts, classes, grades and AI features.",
+        "One repository and one deployment for both the front end and the API."
+      ],
+      learnings: [
+        "How to grow a small CRUD app into a larger product without rewriting it",
+        "Handling sign-in with JWTs and cookies",
+        "Giving an AI assistant the right context and a fallback plan",
+        "Free hosting tiers sleep when idle, which affects first-load time"
+      ],
+      nextSteps: []
+    }
+  },
+  {
     slug: "teech",
     title: "Teech",
     category: "Consultation Booking System",
@@ -222,99 +315,6 @@ export const projects = [
         "Rules that protect data belong in the database, not just the UI",
         "Row-level security and security-definer functions in Postgres",
         "Working in a team with versioned migrations and a shared database"
-      ],
-      nextSteps: []
-    }
-  },
-  {
-    slug: "awesome-todos",
-    title: "Awesome ToDo's",
-    category: "Student Planner",
-    year: "2026",
-    role: "Web Developer",
-    type: "Web app (PWA)",
-    status: "Live",
-    summary:
-      "A web-based planner for students that keeps tasks, deadlines, class schedules and grades in one place, with a focus timer and Study Buddy, an AI assistant that knows your tasks and classes.",
-    highlights: [
-      "Tasks, calendar, timetable and grade tracker in one app",
-      "Study Buddy AI chat and \"Break down with AI\" for big tasks",
-      "Separate phone and desktop layouts, installable as an app"
-    ],
-    link: "https://awesometodos-web.onrender.com/",
-    repo: "https://github.com/Aelowww/AwesomeToDo-s",
-    techStack: [
-      { name: "React", purpose: "Pages, components and app state" },
-      { name: "Vite", purpose: "Development server and production build" },
-      { name: "Node.js + Express", purpose: "REST API for tasks, accounts, classes and grades, plus static hosting of the built app" },
-      { name: "MongoDB Atlas", purpose: "Stores users, tasks, classes and grades" },
-      { name: "JWT", purpose: "Sign-in sessions stored in cookies" },
-      { name: "Gemini API", purpose: "Study Buddy chat and AI task breakdown" },
-      { name: "Nodemailer", purpose: "Password reset emails" },
-      { name: "Render", purpose: "Hosts the API and front end together, deployed from GitHub" }
-    ],
-    cover: {
-      desktop: { src: "/projects/awesome-todos/desktop-home.webp", alt: "Awesome ToDo's dashboard on desktop", ...desktop },
-      mobile: { src: "/projects/awesome-todos/mobile-home.webp", alt: "Awesome ToDo's dashboard on mobile", ...mobile }
-    },
-    gallery: [
-      { src: "/projects/awesome-todos/desktop-home.webp", alt: "Dashboard with progress ring, stat tiles, week strip and today's classes", caption: "Dashboard: today's progress, classes and 7-day activity", viewport: "desktop", ...desktop },
-      { src: "/projects/awesome-todos/desktop-tasks.webp", alt: "Task list with filters, search and sorting", caption: "Tasks with All, Today, Next 7 days, Overdue and Done views", viewport: "desktop", ...desktop },
-      { src: "/projects/awesome-todos/desktop-classes.webp", alt: "Weekly class timetable with rooms", caption: "Weekly class schedule with rooms", viewport: "desktop", ...desktop },
-      { src: "/projects/awesome-todos/desktop-grades.webp", alt: "Grade tracker with target grade per class", caption: "Grade tracker with a target-grade calculator", viewport: "desktop", ...desktop },
-      { src: "/projects/awesome-todos/desktop-focus.webp", alt: "Pomodoro focus timer", caption: "Focus timer linked to a task", viewport: "desktop", ...desktop },
-      { src: "/projects/awesome-todos/mobile-home.webp", alt: "Dashboard on mobile", caption: "Dashboard on a phone", viewport: "mobile", ...mobile },
-      { src: "/projects/awesome-todos/mobile-tasks.webp", alt: "Task list on mobile", caption: "Tasks on a phone", viewport: "mobile", ...mobile },
-      { src: "/projects/awesome-todos/mobile-calendar.webp", alt: "Deadline calendar on mobile", caption: "Deadline calendar on a phone", viewport: "mobile", ...mobile },
-      { src: "/projects/awesome-todos/mobile-classes.webp", alt: "Class schedule on mobile", caption: "Class schedule on a phone", viewport: "mobile", ...mobile },
-      { src: "/projects/awesome-todos/mobile-grades.webp", alt: "Grade tracker on mobile", caption: "Grade tracker on a phone", viewport: "mobile", ...mobile }
-    ],
-    caseStudy: {
-      overview:
-        "Awesome ToDo's started as a simple to-do list and grew into a planner for students. You add tasks with a subject, type, priority, due date and steps, see what's due today and this week, keep your class schedule and grades, and stay focused with a built-in timer. Study Buddy, the AI assistant, can answer questions about your schedule and split a big task into steps.",
-      problem:
-        "Students keep track of assignments, exams and classes across sticky notes, group chats and memory, and things get missed. A plain to-do list doesn't know about your classes or how close your grades are to your goal.",
-      goals: [
-        "Put tasks, deadlines, classes and grades in one place",
-        "Show what matters today at a glance",
-        "Help students start big tasks and stay focused",
-        "Work well on both phones and computers"
-      ],
-      approach:
-        "The React app talks to an Express REST API split into tasks, accounts, and classes and grades. In production, Express serves the built React files and falls back to index.html for any non-API route, so one Render service hosts everything. Class names double as task subjects, which connects the timetable, tasks and dashboard. Study Buddy gets the student's tasks and classes as context, and the AI code tries a newer Gemini model first and falls back when one is busy.",
-      features: [
-        { title: "Detailed tasks", detail: "Each task can have a subject, type (task, assignment, exam, project or reading), priority, due date, steps and notes." },
-        { title: "Smart views", detail: "All, Today, Next 7 days, Overdue and Done, with search, subject and type filters, and sorting." },
-        { title: "Dashboard", detail: "A progress ring, stat tiles, a week strip, today's classes and a 7-day activity chart." },
-        { title: "Calendar", detail: "Every deadline on a month calendar. Tap a day to see or add tasks for it." },
-        { title: "Classes and grades", detail: "A weekly timetable with rooms and a grade tracker that shows what you need to reach a target grade." },
-        { title: "Focus timer", detail: "Pomodoro sessions with one-tap lengths, a custom time and an optional task to work on." },
-        { title: "Study Buddy AI", detail: "A chat that knows your tasks and classes, plus \"Break down with AI\" to split a big task into steps." },
-        { title: "Accounts", detail: "Welcome tour, profile photo, school and year level, email and password changes, and password reset." },
-        { title: "Light and dark mode", detail: "Light, dark or match your device, with separate phone and desktop layouts and PWA install." }
-      ],
-      challenges: [
-        {
-          title: "Database connection failing on some networks",
-          problem: "MongoDB Atlas connection strings need an SRV DNS lookup, which some local DNS providers block.",
-          solution: "I pointed Node's DNS resolver at public resolvers (8.8.8.8 and 1.1.1.1) before connecting, which made local development reliable."
-        },
-        {
-          title: "Keeping the AI assistant available",
-          problem: "A single AI model can be busy or rate-limited, which would leave Study Buddy unusable.",
-          solution: "The server tries a list of Gemini models in order and moves to the next one when Google reports it busy or unavailable. Without an API key, the rest of the app still works and Study Buddy explains that it isn't switched on yet."
-        }
-      ],
-      outcomes: [
-        "Live on Render with automatic deploys from the main branch.",
-        "Grew from a four-route CRUD app into a full planner with accounts, classes, grades and AI features.",
-        "One repository and one deployment for both the front end and the API."
-      ],
-      learnings: [
-        "How to grow a small CRUD app into a larger product without rewriting it",
-        "Handling sign-in with JWTs and cookies",
-        "Giving an AI assistant the right context and a fallback plan",
-        "Free hosting tiers sleep when idle, which affects first-load time"
       ],
       nextSteps: []
     }
