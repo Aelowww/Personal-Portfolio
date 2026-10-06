@@ -217,7 +217,7 @@ export const projects = [
     year: "2026",
     role: "Web Developer",
     type: "Web app",
-    status: "In development",
+    status: "Live",
     summary:
       "A blood donation app that connects people who need blood with compatible, verified donors nearby. Seekers request blood and track every response, donors control their availability, and the app follows real donation rules on compatibility, waiting periods and units.",
     highlights: [
@@ -225,8 +225,7 @@ export const projects = [
       "Verified donors only, backed by an uploaded medical record",
       "Live city view of donors available and blood requests open"
     ],
-    link: "",
-    linkNote: "Live demo coming soon.",
+    link: "https://doogo.vercel.app/",
     repo: "https://github.com/Aelowww/DooGo",
     techStack: [
       { name: "Next.js", purpose: "App Router pages and a proxy that serves the mobile or desktop layout at the same URLs" },
@@ -311,7 +310,7 @@ export const projects = [
         "Designing for two kinds of users without favouring either"
       ],
       nextSteps: [
-        "Deploy publicly and enable App Check",
+        "Enable App Check to block automated abuse",
         "Email or push notifications for urgent requests"
       ]
     }
