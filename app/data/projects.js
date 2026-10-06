@@ -211,6 +211,112 @@ export const projects = [
     }
   },
   {
+    slug: "doogo",
+    title: "DooGo",
+    category: "Blood Donation Platform",
+    year: "2026",
+    role: "Web Developer",
+    type: "Web app",
+    status: "In development",
+    summary:
+      "A blood donation app that connects people who need blood with compatible, verified donors nearby. Seekers request blood and track every response, donors control their availability, and the app follows real donation rules on compatibility, waiting periods and units.",
+    highlights: [
+      "Real donation rules: blood type compatibility, 12/16-week waiting periods, one unit per donor",
+      "Verified donors only, backed by an uploaded medical record",
+      "Live city view of donors available and blood requests open"
+    ],
+    link: "",
+    linkNote: "Live demo coming soon.",
+    repo: "https://github.com/Aelowww/DooGo",
+    techStack: [
+      { name: "Next.js", purpose: "App Router pages and a proxy that serves the mobile or desktop layout at the same URLs" },
+      { name: "TypeScript", purpose: "Typed screens, data models and donation rules" },
+      { name: "Firebase Auth", purpose: "Email and password sign-in with a password policy" },
+      { name: "Cloud Firestore", purpose: "Profiles, requests, chats and notifications with live updates" },
+      { name: "Firestore Security Rules", purpose: "Validate every write: verified donors, matching names, in-app links only" },
+      { name: "CSS Modules", purpose: "Component-scoped styles for the mobile and desktop layouts" },
+      { name: "Phosphor Icons", purpose: "Consistent duotone icon set" }
+    ],
+    cover: {
+      desktop: { src: "/projects/doogo/desktop-home.webp", alt: "DooGo dashboard on desktop", ...desktop },
+      mobile: { src: "/projects/doogo/mobile-home.webp", alt: "DooGo dashboard on mobile", ...mobile }
+    },
+    gallery: [
+      { src: "/projects/doogo/desktop-home.webp", alt: "Dashboard with blood card, live city numbers and donors by blood type", caption: "Dashboard: blood card, live city view and donors by type", viewport: "desktop", ...desktop },
+      { src: "/projects/doogo/desktop-request-blood.webp", alt: "Request blood form with urgency, bags, date and city picker", caption: "Request blood with urgency, bags, needed-by date and up to 5 cities", viewport: "desktop", ...desktop },
+      { src: "/projects/doogo/desktop-requests.webp", alt: "Received requests with urgency and status", caption: "Requests with urgency, hospital and what happens next", viewport: "desktop", ...desktop },
+      { src: "/projects/doogo/desktop-chat.webp", alt: "Chat between a donor and a seeker", caption: "Accepting a request opens a chat to agree on a time", viewport: "desktop", ...desktop },
+      { src: "/projects/doogo/desktop-donate.webp", alt: "Donating page with availability, eligibility and donor details", caption: "Availability, recovery period and donor details in one place", viewport: "desktop", ...desktop },
+      { src: "/projects/doogo/mobile-home.webp", alt: "Dashboard on mobile", caption: "Dashboard on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/doogo/mobile-request-blood.webp", alt: "Request blood form on mobile", caption: "Requesting blood on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/doogo/mobile-requests.webp", alt: "Requests on mobile", caption: "Requests on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/doogo/mobile-chat.webp", alt: "Chat on mobile", caption: "Chat on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/doogo/mobile-donate.webp", alt: "Donating page on mobile", caption: "Donating on a phone", viewport: "mobile", ...mobile }
+    ],
+    caseStudy: {
+      overview:
+        "DooGo (\"Dugo\" is Filipino for blood) helps families find blood donors fast. A seeker enters the blood type, number of bags, urgency, hospital and needed-by date, then sees only compatible donors who can donate in time and can ask one or several at once. Donors upload a medical record to get verified, switch their availability on or off, and accept requests they can actually fulfil. Once a donor accepts, both sides chat to agree on a time.",
+      problem:
+        "When a patient needs blood, families usually post in group chats and on social media and wait. There is no way to know who has a compatible blood type, who is nearby, or who has donated too recently to give again, so time is lost asking the wrong people.",
+      goals: [
+        "Show seekers only donors who are compatible, verified and able to donate in time",
+        "Follow real donation rules instead of letting anyone accept anything",
+        "Treat seekers and donors equally on the dashboard",
+        "Work well on phones, with a full desktop layout too"
+      ],
+      approach:
+        "I built it on Next.js with TypeScript and Firebase. Screens are written once and rendered in a phone layout or a desktop layout with a branded header and breadcrumbs, picked by a proxy at the same URLs. The donation rules live in one module (compatibility, waiting periods by sex, one unit per donor, one commitment at a time) and are used by every screen. Because the free Firebase plan has no server code, Firestore security rules do the enforcement: they validate every write, require a real medical record before a donor can be verified, and check that names on a request match the public profiles.",
+      features: [
+        { title: "Blood requests", detail: "Blood type, bags, urgency, hospital, needed-by date and up to 5 cities. Ask one donor or several at once, then track each request from sent to accepted to donated." },
+        { title: "Real donation rules", detail: "ABO and Rh compatibility, a 12-week (men) or 16-week (women) waiting period, one unit per donor, and one commitment at a time. A recovering donor can still accept if they'll be ready by the needed-by date." },
+        { title: "Bag-by-bag progress", detail: "A 3-bag request needs 3 donors. The request shows how many agreed and donated, and closes once every bag is given." },
+        { title: "Verified donors", detail: "Donors upload a medical record before they can appear in searches. Only they can see the document; others see a Verified badge." },
+        { title: "Live city view", detail: "The dashboard shows donors available and blood requests open in your city, plus donors by blood type with low-supply warnings." },
+        { title: "Chat and notifications", detail: "Accepting a request opens a chat with an automatic first message. In-app notifications and unread badges keep both sides updated." },
+        { title: "Account safety", detail: "Password rules with a strength meter, a required blood-details step for new accounts, and full data deletion including the medical record." }
+      ],
+      challenges: [
+        {
+          title: "Enforcing rules without a server",
+          problem: "On the free plan every write comes straight from the browser, so anyone could edit their own data to look verified or send fake requests.",
+          solution:
+            "I moved enforcement into Firestore security rules. Each document accepts only its known fields, \"verified\" requires a medical record that actually exists, requests can only go to listed donors, and the names on a request must match both people's public profiles."
+        },
+        {
+          title: "A 3-bag request is three donations",
+          problem: "Treating a request as done when one donor accepts left patients short, and let extra donors accept a request that was already covered.",
+          solution:
+            "Each request has a public, anonymous summary that counts bags agreed and donated. Counters can only move up by one, donors see when a request is covered, and it only closes when every bag has been donated."
+        },
+        {
+          title: "Recovery periods",
+          problem: "A donor who just gave blood can't donate again for 12 to 16 weeks, but they may still have other requests waiting.",
+          solution:
+            "Eligibility is checked against the request's needed-by date, not just today. After a donation, any pending request needed before the donor recovers is declined automatically and the seeker is told to try someone else."
+        },
+        {
+          title: "Not favouring one side",
+          problem: "Early versions of the dashboard focused on donors, which made seekers feel like an afterthought.",
+          solution: "The dashboard now shows donors available and requests open side by side, with equal \"Request blood\" and \"Donate blood\" actions."
+        }
+      ],
+      outcomes: [
+        "The full flow works end to end: request, accept, chat, donate, with bag counts and notifications at every step.",
+        "Separate phone and desktop layouts on the same URLs.",
+        "Security rules, headers and redirect checks reviewed before release."
+      ],
+      learnings: [
+        "Domain rules (like blood donation intervals) shape the whole product, not just one screen",
+        "Security rules can replace a lot of server code when designed carefully",
+        "Designing for two kinds of users without favouring either"
+      ],
+      nextSteps: [
+        "Deploy publicly and enable App Check",
+        "Email or push notifications for urgent requests"
+      ]
+    }
+  },
+  {
     slug: "teech",
     title: "Teech",
     category: "Consultation Booking System",
