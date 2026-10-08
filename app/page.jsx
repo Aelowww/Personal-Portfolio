@@ -5,7 +5,6 @@ import ProfilePhoto from "./components/profile-photo";
 import ProjectCard from "./components/project-card";
 import ThemeToggle from "./components/theme-toggle";
 import ContactForm from "./components/contact-form";
-import CurrentlyTaking from "./components/currently-taking";
 import { projects } from "./data/projects";
 import { skillGroups, skills } from "./data/skills";
 
@@ -234,7 +233,8 @@ const experienceTimeline = [
 export default function Home() {
   const year = new Date().getFullYear();
   const previewCertificates = certificates.slice(0, 3);
-  const previewProjects = projects.slice(0, 3);
+  // Ongoing projects only appear on the full projects page.
+  const previewProjects = projects.filter((project) => project.status !== "Ongoing").slice(0, 3);
 
   return (
     <div className="site">
@@ -468,7 +468,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <CurrentlyTaking />
         </section>
 
         <section id="contact" className="panel contact contact-section">
