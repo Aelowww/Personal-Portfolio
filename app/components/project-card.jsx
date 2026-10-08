@@ -70,6 +70,7 @@ export default function ProjectCard({ project, index }) {
           <span>{project.category}</span>
           <span aria-hidden="true">·</span>
           <span>{project.year}</span>
+          {project.status === "Ongoing" ? <span className="project-status">Ongoing</span> : null}
         </p>
         <h3>
           <Link href={`/projects/${project.slug}`}>{project.title}</Link>

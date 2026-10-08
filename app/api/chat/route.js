@@ -72,12 +72,20 @@ Education:
 - BS Information Technology, 3rd year (current), Western Institute of Technology. Started Civil Engineering in 2022 and shifted to IT in 2024.
 
 Certificates:
-- HTML Fundamentals Certificate
-- Responsive Web Design Certificate
-- JavaScript Certificate
-- Front-End Development Libraries Certificate
-- Relational Database Certificate
-- Relational Database V8 Certificate
+- Google Data Analytics Professional Certificate (Google, through Coursera, 2026)
+- Front-End Development Libraries V8 Certificate (freeCodeCamp)
+- Legacy Responsive Web Design V8 Certificate (freeCodeCamp)
+- Legacy JavaScript Algorithms and Data Structures V7 Certificate (freeCodeCamp)
+- Front-End Development Libraries Certificate (freeCodeCamp)
+- Responsive Web Design Certificate (freeCodeCamp)
+- Relational Database V8 Certificate (freeCodeCamp)
+- Relational Database Certificate (freeCodeCamp)
+- JavaScript Certificate (freeCodeCamp)
+- HTML Fundamentals Certificate (Codecred)
+
+Currently taking:
+- Legacy Full Stack (freeCodeCamp), in progress
+- Google IT Support (Google, through Coursera), in progress
 
 Skills:
 - ${portfolioSkills}

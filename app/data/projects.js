@@ -6,6 +6,109 @@ const mobile = { width: 780, height: 1688 };
 
 export const projects = [
   {
+    slug: "lore",
+    title: "Lore",
+    category: "Coffee Shop Ordering & POS",
+    year: "2026",
+    role: "Web Developer",
+    type: "Web app",
+    status: "Ongoing",
+    summary:
+      "An ordering, payment and point-of-sale app for Lore Coffee Station in Jaro, Iloilo. Customers customize drinks, order ahead and pay online, while the cashier rings up walk-ins, confirms payments and moves orders through a live kitchen display.",
+    highlights: [
+      "Orders update live for both the customer and the counter",
+      "QR Ph, card, bank transfer and cash, with the shop's real processing fees",
+      "Register with Senior/PWD discount, open tabs and printable receipts"
+    ],
+    link: null,
+    linkNote: "Ongoing project. It runs locally while I finish it, so there's no live site yet.",
+    repo: "https://github.com/Aelowww/Lore",
+    techStack: [
+      { name: "React", purpose: "Customer pages and the staff screens" },
+      { name: "TypeScript", purpose: "Types and pricing rules shared by the app and the server" },
+      { name: "Vite", purpose: "Development server and production build" },
+      { name: "Tailwind CSS", purpose: "Styling built around Lore's colors and branding" },
+      { name: "Express", purpose: "REST API for the menu, orders, payments, reports and promos" },
+      { name: "Socket.IO", purpose: "Live order status, kitchen display and queue board" },
+      { name: "SQLite", purpose: "Menu, orders, loyalty points and event inquiries, using Node's built-in driver" },
+      { name: "Zustand", purpose: "Cart and register state" }
+    ],
+    cover: {
+      desktop: { src: "/projects/lore/desktop-home.webp", alt: "Lore Coffee Station home page on desktop", ...desktop },
+      mobile: { src: "/projects/lore/mobile-home.webp", alt: "Lore Coffee Station home page on mobile", ...mobile }
+    },
+    gallery: [
+      { src: "/projects/lore/desktop-home.webp", alt: "Home page with Lore's branding and signature drinks", caption: "Home page built around Lore's own branding", viewport: "desktop", ...desktop },
+      { src: "/projects/lore/desktop-menu.webp", alt: "Menu with categories, search and drink cards", caption: "Menu with categories and search", viewport: "desktop", ...desktop },
+      { src: "/projects/lore/desktop-checkout.webp", alt: "Checkout with order type, promo code and payment options", caption: "Checkout with promo codes, points and the server-calculated total", viewport: "desktop", ...desktop },
+      { src: "/projects/lore/desktop-order.webp", alt: "Live order tracker showing the order being prepared", caption: "Live order tracking after paying by QR", viewport: "desktop", ...desktop },
+      { src: "/projects/lore/desktop-register.webp", alt: "Cashier register with menu grid, ticket and cash change", caption: "Cashier register: walk-in sale with cash and change", viewport: "desktop", ...desktop },
+      { src: "/projects/lore/mobile-home.webp", alt: "Home page on mobile", caption: "Home page on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/lore/mobile-menu.webp", alt: "Menu on mobile", caption: "Ordering from the menu on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/lore/mobile-checkout.webp", alt: "Checkout on mobile", caption: "Checkout on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/lore/mobile-order.webp", alt: "Order tracker on mobile", caption: "Tracking an order on a phone", viewport: "mobile", ...mobile },
+      { src: "/projects/lore/mobile-register.webp", alt: "Register ticket on mobile", caption: "Register ticket on a phone", viewport: "mobile", ...mobile }
+    ],
+    caseStudy: {
+      overview:
+        "Lore Coffee Station is a coffee shop and mobile espresso bar in Jaro, Iloilo that I like a lot, so I built them a full ordering system. Customers browse the menu, pick the size, milk and sweetness of each drink, then order for dine-in, takeout or a scheduled pickup and pay online. Behind the counter, the cashier rings up walk-ins, confirms QR and bank payments, and moves orders from new to preparing to ready, while the customer's page and a \"Now serving\" board update on their own.",
+      problem:
+        "Lore takes orders at the counter and through Instagram and Facebook messages, and payments come in through cash, QR, cards and bank transfers. Customers can't see what's ready or how long it will take, and the counter has no single place to see every order and payment.",
+      goals: [
+        "Let customers order ahead and pay with the methods Lore already accepts",
+        "Show each order's status live to the customer and the staff",
+        "Give the cashier a fast register for walk-ins, discounts and receipts",
+        "Keep the site looking like Lore, using their own photos and branding"
+      ],
+      approach:
+        "The React app and an Express API share one set of TypeScript types and pricing rules, so the price a customer sees is computed the same way the server charges it. The server recalculates every total, discount and fee on its own and never trusts amounts sent from the browser. Socket.IO pushes order changes to three kinds of listeners: staff screens, the customer's own order page and the counter board, each getting only the data it should see. Orders and the menu live in SQLite through Node's built-in driver, so the app runs with nothing else to install.",
+      features: [
+        { title: "Drink customization", detail: "Hot or iced, 12 or 16 oz, fresh or oat milk, five sweetness levels and add-ons like an extra shot, priced as you choose." },
+        { title: "Order ahead", detail: "Dine in, takeout or pick a 15-minute pickup slot. While the shop is closed, only scheduled pickup is offered." },
+        { title: "Payments", detail: "QR Ph (GCash, Maya), card, bank transfer or cash at the counter, with Lore's posted 1% QR and 3% card fees added automatically." },
+        { title: "Promo codes and Lore Points", detail: "Percent or peso-off codes with a minimum spend, plus points earned per ₱50 and redeemed as pesos off." },
+        { title: "Live order tracking", detail: "Received, preparing, ready and done, updating on the customer's phone without a refresh." },
+        { title: "Cashier register", detail: "Walk-in orders with quick cash buttons and change, Senior Citizen and PWD discount, open tabs and printable thermal receipts." },
+        { title: "Kitchen display and queue board", detail: "Columns for new, preparing and ready orders, a warning after 15 minutes, and a \"Now serving\" screen with a chime." },
+        { title: "Manager tools", detail: "Sold-out toggles, menu and price editing, promo codes, event inquiries and a daily sales report by hour, payment method and item." }
+      ],
+      challenges: [
+        {
+          title: "Keeping prices honest",
+          problem: "If the browser sent the total, anyone could change it before placing an order.",
+          solution:
+            "The browser only sends item IDs and chosen options. The server looks up every price, discount and fee itself, and the checkout shows a quote from the same code before the customer pays."
+        },
+        {
+          title: "Payments Lore checks by hand",
+          problem: "QR and bank transfers don't confirm themselves, but the cashier needs to know which orders are actually paid.",
+          solution:
+            "Customers submit the reference number from their receipt, the order shows as payment pending, and the cashier confirms it was received or rejects it in one tap. The order can't be completed until it's paid."
+        },
+        {
+          title: "Live updates without leaking data",
+          problem: "Broadcasting every order to every browser would expose customers' names and numbers.",
+          solution:
+            "Staff join a channel with their session token, each customer only follows their own order through a random ID, and the public board only receives order numbers."
+        }
+      ],
+      outcomes: [
+        "The full flow works end to end: order, pay, confirm, prepare, ready and complete, with live updates at every step.",
+        "Separate customer, staff and counter-board views that all work on phones and computers.",
+        "Uses Lore's own menu, photos, hours and payment fees."
+      ],
+      learnings: [
+        "Sharing types and pricing code between the app and the server removes a whole class of mismatch bugs",
+        "Realtime features need clear rules about who is allowed to hear what",
+        "Designing around a real brand is harder, and more fun, than starting from a template"
+      ],
+      nextSteps: [
+        "Connect a real card and QR payment provider",
+        "Deploy it and test it with the Lore team at the counter"
+      ]
+    }
+  },
+  {
     slug: "konektbarangay",
     title: "KonektBarangay",
     category: "E-Services Platform",

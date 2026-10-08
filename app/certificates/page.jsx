@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CurrentlyTaking from "../components/currently-taking";
 
 const certificates = [
   {
@@ -11,13 +12,12 @@ const certificates = [
     previewShiftY: "-2px"
   },
   {
-    title: "Legacy JavaScript Algorithms and Data Structures V7 Certificate",
-    issuer: "freeCodeCamp",
+    title: "Google Data Analytics Professional Certificate",
+    issuer: "Google · Coursera",
     year: "2026",
-    link: "/certificates/legacy-javascript-algorithms-v7/view",
-    previewImage: "/Certificates/LEGACY%20JAVASCRIPT%20ALGORITHMS%20AND%20DATA%20STRUCTURES%20V7.png",
-    previewScale: 1.2,
-    previewShiftY: "-2px"
+    link: "/certificates/google-data-analytics/view",
+    previewImage: "/Certificates/GOOGLE%20DATA%20ANALYTICS%20CERTIFICATE.png",
+    previewScale: 1.08
   },
   {
     title: "Legacy Responsive Web Design V8 Certificate",
@@ -25,6 +25,15 @@ const certificates = [
     year: "2026",
     link: "/certificates/legacy-responsive-web-design-v8/view",
     previewImage: "/Certificates/LEGACY%20RESPONSIVE%20WEB%20DESIGN%20V8.png",
+    previewScale: 1.2,
+    previewShiftY: "-2px"
+  },
+  {
+    title: "Legacy JavaScript Algorithms and Data Structures V7 Certificate",
+    issuer: "freeCodeCamp",
+    year: "2026",
+    link: "/certificates/legacy-javascript-algorithms-v7/view",
+    previewImage: "/Certificates/LEGACY%20JAVASCRIPT%20ALGORITHMS%20AND%20DATA%20STRUCTURES%20V7.png",
     previewScale: 1.2,
     previewShiftY: "-2px"
   },
@@ -121,6 +130,7 @@ export default function CertificatesPage() {
             </article>
           ))}
         </div>
+        <CurrentlyTaking />
         <div className="certificates-view-all-wrap">
           <Link className="certificates-view-all" href="/#certificates">
             Back to Home
